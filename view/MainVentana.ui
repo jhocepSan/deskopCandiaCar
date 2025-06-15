@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1193</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Candia Card</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../../../../../../Downloads/CarMec.png</normaloff>
+    <normalon>../../../../../../../Downloads/CarMec.png</normalon>../../../../../../../Downloads/CarMec.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background:rgb(85, 85, 85);</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,7">
+    <property name="spacing">
+     <number>1</number>
+    </property>
+    <property name="leftMargin">
+     <number>1</number>
+    </property>
+    <property name="topMargin">
+     <number>1</number>
+    </property>
+    <property name="rightMargin">
+     <number>1</number>
+    </property>
+    <property name="bottomMargin">
+     <number>1</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="SideBar">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>0</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="Logo">
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+color:rgb(245, 245, 245);
+font:77 10pt 'Arial Black';
+}
+QPushButton{
+border-radius: 12px;
+color:rgb(238, 238, 238);
+background-color:rgb(186, 186, 186);
+padding: 7px 7px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+QPushButton:hover{
+background-color: #04AA6D; /* Green */
+color: white;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,8">
+          <property name="spacing">
+           <number>1</number>
+          </property>
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
+           <number>1</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnMenu">
+            <property name="text">
+             <string>Menu</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../../../../../../Downloads/CarMec.png</normaloff>../../../../../../../Downloads/CarMec.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>CANDIA CAR</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_2">
+         <property name="styleSheet">
+          <string notr="true">QFrame{
+background:rgb(140, 140, 140);
+}
+QPushButton{
+background-color:rgb(166, 200, 185); 
+border-top-left-radius:20px;
+border-bottom-left-radius:20px;
+color: rgb(47, 39, 39);
+text-align: center;
+font:77 16px 'ArialBlack';
+}
+QPushButton:hover{
+background-color:rgb(133, 166, 153); 
+border-top-left-radius:15px;
+border-bottom-left-radius:15px;
+color: rgb(238, 238, 238);
+text-align: center;
+font:77 16px 'ArialBlack';
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QPushButton" name="btnServicios">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>SERVICIOS</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../../../../Downloads/icons8-servicio-40.png</normaloff>../../../../../Downloads/icons8-servicio-40.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnClientes">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>CLIENTES</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../../../../../../Downloads/icons8-clientes-40.png</normaloff>../../../../../../../Downloads/icons8-clientes-40.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnUsuarios">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>USUARIOS</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../../../../../../Downloads/icons8-usuario-40.png</normaloff>../../../../../../../Downloads/icons8-usuario-40.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnConfig">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>CONFIG...</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../../../../../../Downloads/icons8-config-40.png</normaloff>../../../../../../../Downloads/icons8-config-40.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="Contenido">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>1</number>
+       </property>
+       <property name="topMargin">
+        <number>1</number>
+       </property>
+       <property name="rightMargin">
+        <number>1</number>
+       </property>
+       <property name="bottomMargin">
+        <number>1</number>
+       </property>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="currentIndex">
+          <number>3</number>
+         </property>
+         <widget class="QWidget" name="page_servicios"/>
+         <widget class="QWidget" name="page_usuarios"/>
+         <widget class="QWidget" name="page_config"/>
+         <widget class="QWidget" name="page_clientes">
+          <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,8">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color:rgb(245, 245, 245);
+font:77 10pt 'Arial Black';
+}
+QPushButton{
+border-radius: 12px;
+color:rgb(238, 238, 238);
+background-color:rgb(186, 186, 186);
+padding: 7px 7px;
+  text-align: center;
+  font-size: 16px;
+}
+QPushButton:hover{
+background-color: #04AA6D; /* Green */
+color: white;
+}
+QLineEdit{
+padding: 12px 20px;
+margin: 8px 0;
+border: 2px solid #fff;
+border-radius: 5px;
+font:77 12px 'Arial Black';
+color:rgb(238, 238, 238);
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Buscar</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="textSeach"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="bSearchClient">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../../../../../../../Downloads/search_magnifyng_glass_find_locate_icon_123485.png</normaloff>../../../../../../../Downloads/search_magnifyng_glass_find_locate_icon_123485.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="expoCliPdf">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../../../../../../../Downloads/pdf_filetype_icon_177525.png</normaloff>../../../../../../../Downloads/pdf_filetype_icon_177525.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="exExcCli">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../../../../../../../Downloads/file_type_excel_icon_130611.png</normaloff>../../../../../../../Downloads/file_type_excel_icon_130611.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame_4">
+                <property name="styleSheet">
+                 <string notr="true">QLabel{
+color:rgb(245, 245, 245);
+font:77 10pt 'Arial Black';
+}
+QPushButton{
+border-radius: 12px;
+color:rgb(255, 255, 255);
+font-weight: bold;
+background-color:rgb(186, 186, 186);
+padding: 7px 7px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+QPushButton:hover{
+font-weight: bold;
+background-color: #04AA6D; /* Green */
+color: white;
+}
+QLineEdit{
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 2px solid #fff;
+border-radius: 5px;
+font:77 12px 'Arial Black';
+color:rgb(238, 238, 238);
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <property name="spacing">
+                  <number>6</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>1</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>1</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>1</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>1</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="btnAddClient">
+                   <property name="text">
+                    <string>Nuevo Cliente</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>../../../../../../../Downloads/Add_User-80_icon-icons.com_57380.png</normaloff>../../../../../../../Downloads/Add_User-80_icon-icons.com_57380.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnLoadClient">
+                   <property name="text">
+                    <string>Refrescar</string>
+                   </property>
+                   <property name="icon">
+                    <iconset>
+                     <normaloff>../../../../../../../Downloads/reload_78477.png</normaloff>../../../../../../../Downloads/reload_78477.png</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>20</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="listaClientes"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1193</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
