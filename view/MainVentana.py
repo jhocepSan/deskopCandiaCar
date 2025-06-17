@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\pcCandia\view\MainVentana.ui'
+# Form implementation generated from reading ui file 'view/MainVentana.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -14,8 +14,8 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1193, 598)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        icon.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setStyleSheet("background:rgb(85, 85, 85);")
@@ -61,12 +61,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.btnMenu = QtWidgets.QPushButton(parent=self.Logo)
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnMenu.setIcon(icon1)
         self.btnMenu.setObjectName("btnMenu")
         self.horizontalLayout.addWidget(self.btnMenu)
         self.label = QtWidgets.QLabel(parent=self.Logo)
-        self.label.setStyleSheet(" ")
+        self.label.setStyleSheet("")
         self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
@@ -101,28 +101,28 @@ class Ui_MainWindow(object):
         self.btnServicios = QtWidgets.QPushButton(parent=self.frame_2)
         self.btnServicios.setMinimumSize(QtCore.QSize(0, 40))
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/icons8-servicio-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("view/../../../../../Downloads/icons8-servicio-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnServicios.setIcon(icon2)
         self.btnServicios.setObjectName("btnServicios")
         self.verticalLayout_3.addWidget(self.btnServicios)
         self.btnClientes = QtWidgets.QPushButton(parent=self.frame_2)
         self.btnClientes.setMinimumSize(QtCore.QSize(0, 40))
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/icons8-clientes-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/icons8-clientes-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnClientes.setIcon(icon3)
         self.btnClientes.setObjectName("btnClientes")
         self.verticalLayout_3.addWidget(self.btnClientes)
         self.btnUsuarios = QtWidgets.QPushButton(parent=self.frame_2)
         self.btnUsuarios.setMinimumSize(QtCore.QSize(0, 40))
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/icons8-usuario-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/icons8-usuario-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnUsuarios.setIcon(icon4)
         self.btnUsuarios.setObjectName("btnUsuarios")
         self.verticalLayout_3.addWidget(self.btnUsuarios)
         self.btnConfig = QtWidgets.QPushButton(parent=self.frame_2)
         self.btnConfig.setMinimumSize(QtCore.QSize(0, 40))
         icon5 = QtGui.QIcon()
-        icon5.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/icons8-config-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon5.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/icons8-config-40.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnConfig.setIcon(icon5)
         self.btnConfig.setObjectName("btnConfig")
         self.verticalLayout_3.addWidget(self.btnConfig)
@@ -145,6 +145,103 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_servicios)
         self.page_usuarios = QtWidgets.QWidget()
         self.page_usuarios.setObjectName("page_usuarios")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.page_usuarios)
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_6.setSpacing(2)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.frame_5 = QtWidgets.QFrame(parent=self.page_usuarios)
+        self.frame_5.setStyleSheet("QLabel{\n"
+"color:rgb(245, 245, 245);\n"
+"font:77 15pt \'Arial Black\';\n"
+"font-weight: bold;\n"
+"}\n"
+"QPushButton{\n"
+"border-radius: 12px;\n"
+"color:rgb(238, 238, 238);\n"
+"background-color:rgb(186, 186, 186);\n"
+"padding: 7px 7px;\n"
+"  text-align: center;\n"
+"  font-size: 16px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color: #04AA6D; /* Green */\n"
+"color: white;\n"
+"}\n"
+"QLineEdit{\n"
+"padding: 12px 20px;\n"
+"margin: 8px 0;\n"
+"border: 2px solid #fff;\n"
+"border-radius: 5px;\n"
+"font:77 12px \'Arial Black\';\n"
+"color:rgb(238, 238, 238);\n"
+"}")
+        self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_5)
+        self.horizontalLayout_5.setContentsMargins(2, 1, 2, 1)
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        self.label_3 = QtWidgets.QLabel(parent=self.frame_5)
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout_5.addWidget(self.label_3)
+        self.lineSearchUser = QtWidgets.QLineEdit(parent=self.frame_5)
+        self.lineSearchUser.setObjectName("lineSearchUser")
+        self.horizontalLayout_5.addWidget(self.lineSearchUser)
+        self.btnBuscarUser = QtWidgets.QPushButton(parent=self.frame_5)
+        self.btnBuscarUser.setText("")
+        self.btnBuscarUser.setIconSize(QtCore.QSize(30, 30))
+        self.btnBuscarUser.setObjectName("btnBuscarUser")
+        self.horizontalLayout_5.addWidget(self.btnBuscarUser)
+        self.btnNuevoUser = QtWidgets.QPushButton(parent=self.frame_5)
+        self.btnNuevoUser.setStyleSheet("QPushButton{\n"
+"    background:rgb(29, 159, 48);\n"
+"}")
+        self.btnNuevoUser.setIconSize(QtCore.QSize(30, 30))
+        self.btnNuevoUser.setObjectName("btnNuevoUser")
+        self.horizontalLayout_5.addWidget(self.btnNuevoUser)
+        self.pushButton_2 = QtWidgets.QPushButton(parent=self.frame_5)
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.horizontalLayout_5.addWidget(self.pushButton_2)
+        self.verticalLayout_6.addWidget(self.frame_5)
+        self.frame_6 = QtWidgets.QFrame(parent=self.page_usuarios)
+        self.frame_6.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.gridLayout = QtWidgets.QGridLayout(self.frame_6)
+        self.gridLayout.setContentsMargins(2, 2, 2, 2)
+        self.gridLayout.setSpacing(2)
+        self.gridLayout.setObjectName("gridLayout")
+        self.tabWidget = QtWidgets.QTabWidget(parent=self.frame_6)
+        self.tabWidget.setStyleSheet("QTabBar::tab {\n"
+"        color: rgb(164, 255, 225);        \n"
+"        padding: 8px;\n"
+"        font-weight: bold;\n"
+"}\n"
+" QTabBar::tab:selected {\n"
+"        color: white;        \n"
+"        font-weight: bold;   \n"
+"        background:rgb(94, 94, 255);\n"
+"        border-color:rgb(255, 255, 255);\n"
+"}")
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.tab)
+        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.tableWidget = QtWidgets.QTableWidget(parent=self.tab)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.horizontalLayout_6.addWidget(self.tableWidget)
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
+        self.verticalLayout_6.addWidget(self.frame_6)
+        self.verticalLayout_6.setStretch(0, 1)
+        self.verticalLayout_6.setStretch(1, 8)
         self.stackedWidget.addWidget(self.page_usuarios)
         self.page_config = QtWidgets.QWidget()
         self.page_config.setObjectName("page_config")
@@ -194,7 +291,7 @@ class Ui_MainWindow(object):
         self.bSearchClient = QtWidgets.QPushButton(parent=self.frame)
         self.bSearchClient.setText("")
         icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/search_magnifyng_glass_find_locate_icon_123485.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon6.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/search_magnifyng_glass_find_locate_icon_123485.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.bSearchClient.setIcon(icon6)
         self.bSearchClient.setIconSize(QtCore.QSize(30, 30))
         self.bSearchClient.setObjectName("bSearchClient")
@@ -202,7 +299,7 @@ class Ui_MainWindow(object):
         self.expoCliPdf = QtWidgets.QPushButton(parent=self.frame)
         self.expoCliPdf.setText("")
         icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/pdf_filetype_icon_177525.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon7.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/pdf_filetype_icon_177525.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.expoCliPdf.setIcon(icon7)
         self.expoCliPdf.setIconSize(QtCore.QSize(30, 30))
         self.expoCliPdf.setObjectName("expoCliPdf")
@@ -210,7 +307,7 @@ class Ui_MainWindow(object):
         self.exExcCli = QtWidgets.QPushButton(parent=self.frame)
         self.exExcCli.setText("")
         icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/file_type_excel_icon_130611.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon8.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/file_type_excel_icon_130611.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.exExcCli.setIcon(icon8)
         self.exExcCli.setIconSize(QtCore.QSize(30, 30))
         self.exExcCli.setObjectName("exExcCli")
@@ -262,14 +359,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.btnAddClient = QtWidgets.QPushButton(parent=self.frame_4)
         icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/Add_User-80_icon-icons.com_57380.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon9.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/Add_User-80_icon-icons.com_57380.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnAddClient.setIcon(icon9)
         self.btnAddClient.setIconSize(QtCore.QSize(20, 20))
         self.btnAddClient.setObjectName("btnAddClient")
         self.horizontalLayout_4.addWidget(self.btnAddClient)
         self.btnLoadClient = QtWidgets.QPushButton(parent=self.frame_4)
         icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap(".\\pcCandia\\view\\../../../../../Downloads/reload_78477.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon10.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/reload_78477.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnLoadClient.setIcon(icon10)
         self.btnLoadClient.setIconSize(QtCore.QSize(20, 20))
         self.btnLoadClient.setObjectName("btnLoadClient")
@@ -299,6 +396,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -310,6 +408,11 @@ class Ui_MainWindow(object):
         self.btnClientes.setText(_translate("MainWindow", "CLIENTES"))
         self.btnUsuarios.setText(_translate("MainWindow", "USUARIOS"))
         self.btnConfig.setText(_translate("MainWindow", "CONFIG..."))
-        self.label_2.setText(_translate("MainWindow", "Buscar"))
+        self.label_3.setText(_translate("MainWindow", "BUSCAR USUARIO"))
+        self.btnNuevoUser.setText(_translate("MainWindow", "Nuevo"))
+        self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Usuarios"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Permiso"))
+        self.label_2.setText(_translate("MainWindow", "BUSCAR CLIENTE"))
         self.btnAddClient.setText(_translate("MainWindow", "Nuevo Cliente"))
         self.btnLoadClient.setText(_translate("MainWindow", "Refrescar"))

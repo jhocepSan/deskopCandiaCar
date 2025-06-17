@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>828</width>
-    <height>473</height>
+    <height>505</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -398,7 +398,7 @@ color:black;
               <widget class="QPushButton" name="btnGuardarCli">
                <property name="styleSheet">
                 <string notr="true">QPushButton{
-	background:rgb(29, 159, 48);
+		background:rgb(75, 181, 96);
 }</string>
                </property>
                <property name="text">
@@ -909,7 +909,7 @@ background:rgb(175, 28, 35)
                  <widget class="QPushButton" name="btnGuardarVehiculo">
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
-background:rgb(29, 159, 48);
+	background:rgb(75, 181, 96);
 }</string>
                   </property>
                   <property name="text">

@@ -278,7 +278,198 @@ font:77 16px 'ArialBlack';
           <number>3</number>
          </property>
          <widget class="QWidget" name="page_servicios"/>
-         <widget class="QWidget" name="page_usuarios"/>
+         <widget class="QWidget" name="page_usuarios">
+          <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,8">
+           <property name="spacing">
+            <number>2</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_5">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+color:rgb(245, 245, 245);
+font:77 15pt 'Arial Black';
+font-weight: bold;
+}
+QPushButton{
+border-radius: 12px;
+color:rgb(238, 238, 238);
+background-color:rgb(186, 186, 186);
+padding: 7px 7px;
+  text-align: center;
+  font-size: 16px;
+}
+QPushButton:hover{
+background-color: #04AA6D; /* Green */
+color: white;
+}
+QLineEdit{
+padding: 12px 20px;
+margin: 8px 0;
+border: 2px solid #fff;
+border-radius: 5px;
+font:77 12px 'Arial Black';
+color:rgb(238, 238, 238);
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <property name="leftMargin">
+               <number>2</number>
+              </property>
+              <property name="topMargin">
+               <number>1</number>
+              </property>
+              <property name="rightMargin">
+               <number>2</number>
+              </property>
+              <property name="bottomMargin">
+               <number>1</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>BUSCAR USUARIO</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineSearchUser"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnBuscarUser">
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnNuevoUser">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+	background:rgb(29, 159, 48);
+}</string>
+                </property>
+                <property name="text">
+                 <string>Nuevo</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="text">
+                 <string>PushButton</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_6">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <property name="leftMargin">
+               <number>2</number>
+              </property>
+              <property name="topMargin">
+               <number>2</number>
+              </property>
+              <property name="rightMargin">
+               <number>2</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QTabWidget" name="tabWidget">
+                <property name="styleSheet">
+                 <string notr="true">QTabBar::tab {
+        color: rgb(164, 255, 225);        
+        padding: 8px;
+		font-weight: bold;
+}
+ QTabBar::tab:selected {
+        color: white;        
+		font-weight: bold;   
+        background:rgb(94, 94, 255);
+		border-color:rgb(255, 255, 255);
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <widget class="QWidget" name="tab">
+                 <attribute name="title">
+                  <string>Usuarios</string>
+                 </attribute>
+                 <layout class="QHBoxLayout" name="horizontalLayout_6">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QTableWidget" name="tableWidget"/>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_2">
+                 <attribute name="title">
+                  <string>Permiso</string>
+                 </attribute>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
          <widget class="QWidget" name="page_config"/>
          <widget class="QWidget" name="page_clientes">
           <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,8">
@@ -335,7 +526,7 @@ color:rgb(238, 238, 238);
               <item>
                <widget class="QLabel" name="label_2">
                 <property name="text">
-                 <string>Buscar</string>
+                 <string>BUSCAR CLIENTE</string>
                 </property>
                </widget>
               </item>

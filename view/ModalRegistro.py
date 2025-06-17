@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(828, 473)
+        Dialog.resize(828, 505)
         Dialog.setStyleSheet("background:rgb(85, 85, 85);")
         self.horizontalLayout = QtWidgets.QHBoxLayout(Dialog)
         self.horizontalLayout.setContentsMargins(1, 1, 1, 1)
@@ -219,7 +219,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_2.addWidget(self.btnSalir)
         self.btnGuardarCli = QtWidgets.QPushButton(parent=self.frame_3)
         self.btnGuardarCli.setStyleSheet("QPushButton{\n"
-"    background:rgb(29, 159, 48);\n"
+"        background:rgb(75, 181, 96);\n"
 "}")
         self.btnGuardarCli.setIconSize(QtCore.QSize(25, 25))
         self.btnGuardarCli.setObjectName("btnGuardarCli")
@@ -469,7 +469,7 @@ class Ui_Dialog(object):
         self.horizontalLayout_16.addWidget(self.btnAtrasVeh)
         self.btnGuardarVehiculo = QtWidgets.QPushButton(parent=self.frame_23)
         self.btnGuardarVehiculo.setStyleSheet("QPushButton{\n"
-"background:rgb(29, 159, 48);\n"
+"    background:rgb(75, 181, 96);\n"
 "}")
         self.btnGuardarVehiculo.setIconSize(QtCore.QSize(25, 25))
         self.btnGuardarVehiculo.setObjectName("btnGuardarVehiculo")
