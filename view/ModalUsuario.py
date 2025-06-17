@@ -45,11 +45,13 @@ class Ui_Dialog(object):
 "}\n"
 "QComboBox{\n"
 "    border-radius:5px;\n"
-"    font:77 16 \'Arial Black\';\n"
+"    font:16 \'Arial Black\';\n"
 "    background:rgb(136, 135, 135);\n"
 "    border: 1px solid #fff;\n"
 "    padding: 12px 20px;\n"
 "    margin: 8px 0;\n"
+"    color:rgb(255, 255, 255);\n"
+"    font-weight: bold;\n"
 "}\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
@@ -105,8 +107,14 @@ class Ui_Dialog(object):
         self.linePassword = QtWidgets.QLineEdit(parent=self.frame_6)
         self.linePassword.setObjectName("linePassword")
         self.horizontalLayout_4.addWidget(self.linePassword)
+        self.btnViewPass = QtWidgets.QPushButton(parent=self.frame_6)
+        self.btnViewPass.setText("")
+        self.btnViewPass.setIconSize(QtCore.QSize(30, 30))
+        self.btnViewPass.setObjectName("btnViewPass")
+        self.horizontalLayout_4.addWidget(self.btnViewPass)
         self.horizontalLayout_4.setStretch(0, 4)
         self.horizontalLayout_4.setStretch(1, 7)
+        self.horizontalLayout_4.setStretch(2, 1)
         self.verticalLayout.addWidget(self.frame_6)
         self.frame_8 = QtWidgets.QFrame(parent=self.frame)
         self.frame_8.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)

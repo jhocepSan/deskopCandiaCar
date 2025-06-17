@@ -3,12 +3,13 @@ from PyQt6.QtSvg import QSvgRenderer
 from PyQt6.QtGui import QFont,QIcon,QPixmap,QPainter,QColor
 from PyQt6.QtCore import QSize
 from view.ModalRegistro import Ui_Dialog
+import Clases.Utils as utils
 import os
 
 class ModalRegistro(QDialog):
     def __init__(self):
         super().__init__()
-        self.SVG_BASE = "./public/fontawesome-free-6.7.2-desktop/svgs/solid/"
+        self.SVG_BASE = utils.SVG_BASE
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.setStyleSheet("""
