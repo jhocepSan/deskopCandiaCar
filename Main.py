@@ -5,13 +5,15 @@ from PyQt6.QtCore import QSize
 from view.MainVentana import Ui_MainWindow
 from ControlView.ModalRegistro import ModalRegistro
 from ControlView.ModalUsuario import ModalUsuario
+from ControlView.ModalLogin import ModalLogin
 import Clases.ComunicacionApi as ComunicacionApi
+import Clases.Utils as utils
 import os
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.SVG_BASE = "./public/fontawesome-free-6.7.2-desktop/svgs/solid/"
+        self.SVG_BASE = utils.SVG_BASE
         self.api = ComunicacionApi.ComunicacionApi()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -98,11 +100,27 @@ class MainWindow(QMainWindow):
         dialog = ModalRegistro()
         dialog.exec()
     def mostrarModalUsuario(self):
-        dialog  =ModalUsuario()
+        dialog  = ModalUsuario()
         dialog.exec()
+    def testLogin(self):
+        session = utils.test_session_user()
+        if session is None:
+            dialog = ModalLogin(self)
+            resultado = dialog.exec()
+            print(resultado)
+            if resultado == QDialog.DialogCode.Accepted:
+                print("inicio correcto")
+                
+            else:
+                self.close()
+                
 
 if __name__ == "__main__":
     app = QApplication([])
-    ventana = MainWindow()
-    ventana.show()
-    app.exec()
+    login = ModalLogin()
+    if login.exec() == QDialog.DialogCode.Accepted:
+        ventana = MainWindow()
+        ventana.show()
+        app.exec()
+    else:
+        print("Login cancelado")
