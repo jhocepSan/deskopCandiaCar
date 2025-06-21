@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>828</width>
-    <height>505</height>
+    <height>577</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -68,7 +68,7 @@
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab">
          <property name="styleSheet">
@@ -238,6 +238,17 @@ color:rgb(238, 238, 238);
                   </layout>
                  </widget>
                 </item>
+                <item>
+                 <layout class="QVBoxLayout" name="vL_lb_valid_message">
+                  <item>
+                   <widget class="QLabel" name="lb_valid_message">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
                </layout>
               </widget>
              </item>
@@ -395,7 +406,22 @@ color:black;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btnGuardarCli">
+              <widget class="QPushButton" name="btnGuardarCliente">
+               <property name="toolTip">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Guardar datos&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+		background:rgb(0, 85, 255);
+}</string>
+               </property>
+               <property name="text">
+                <string>Guardar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnSiguiente">
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 		background:rgb(75, 181, 96);
@@ -472,7 +498,7 @@ color:rgb(238, 238, 238);
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0">
+            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0">
              <property name="spacing">
               <number>0</number>
              </property>
@@ -489,6 +515,17 @@ color:rgb(238, 238, 238);
               <number>0</number>
              </property>
              <item>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QLabel" name="label_15">
+                 <property name="text">
+                  <string>Cliente</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
               <widget class="QFrame" name="frame_24">
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
@@ -496,7 +533,7 @@ color:rgb(238, 238, 238);
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,1">
+               <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
