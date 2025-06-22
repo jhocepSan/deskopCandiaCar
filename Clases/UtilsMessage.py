@@ -42,3 +42,24 @@ def mostrar_toast_correcto(parent:QWidget,texto:str,duracion_ms:int=3000):
     toast.show()
 
     QTimer.singleShot(duracion_ms, toast.close)
+
+
+def mostrar_WIP(parent:QWidget):
+    toast = QLabel(parent)
+    toast.setText("PROCESANDO...")
+    toast.setStyleSheet("""
+        QLabel {
+            background-color:  #ffffff;
+            color:  #000000;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            border-color:#ffffff;
+        }
+    """)
+    toast.setAlignment(Qt.AlignmentFlag.AlignCenter)
+    toast.setWindowFlags(Qt.WindowType.ToolTip)
+    toast.adjustSize()
+    toast.move(parent.geometry().center() - toast.rect().center())
+    toast.show()
+    return toast

@@ -1,8 +1,9 @@
-import requests,json
+import requests, json
 import Clases.Utils as utils
 class ComunicacionApi(object):
     def __init__(self):
         self.url = utils.URL_SERVER
+
     def ObtenerUsuarios(self):
         try:
             result = requests.get(self.url+"/usuario/getUsuarios",timeout=5)
@@ -12,6 +13,7 @@ class ComunicacionApi(object):
                 return result.json()
         except (requests.RequestException,requests.ConnectTimeout):
             return {'error':'No hay conexion a la api'}
+
     def NuevoUsuario(self,datos):
         try:
             print(datos)
@@ -23,3 +25,9 @@ class ComunicacionApi(object):
             return {'ok':'ok'}
         except (requests.RequestException,requests.ConnectTimeout):
             return {'error':"No hay conexion a la api"}
+
+    def NuevaPersona(self, datos):
+        print(datos)
+        result = requests.post(self.url+'/persona', timeout=5, json=datos)
+        result = result.json()
+        return result['ok']
