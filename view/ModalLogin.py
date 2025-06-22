@@ -22,6 +22,9 @@ class Ui_Dialog(object):
         self.verticalLayout.setSpacing(3)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame = QtWidgets.QFrame(parent=Dialog)
+        font = QtGui.QFont()
+        font.setKerning(True)
+        self.frame.setFont(font)
         self.frame.setStyleSheet("QLabel{\n"
 "color:rgb(245, 245, 245);\n"
 "font:77 10pt \'Arial Black\';\n"
@@ -40,14 +43,15 @@ class Ui_Dialog(object):
 "}\n"
 "QLineEdit{\n"
 "padding: 12px 20px;\n"
-"margin: 8px 0;\n"
+"margin: 3px 0;\n"
 "border: 2px solid #fff;\n"
 "border-radius: 5px;\n"
-"font:77 12px \'Arial Black\';\n"
+"font:77 16px \'Arial Black\';\n"
 "color:rgb(238, 238, 238);\n"
 "}")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame.setLineWidth(0)
         self.frame.setObjectName("frame")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.frame)
         self.verticalLayout_2.setContentsMargins(2, 2, 2, 2)
@@ -75,6 +79,7 @@ class Ui_Dialog(object):
         font.setBold(True)
         font.setItalic(False)
         self.label_2.setFont(font)
+        self.label_2.setLineWidth(0)
         self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.verticalLayout_3.addWidget(self.label_2)
@@ -92,9 +97,9 @@ class Ui_Dialog(object):
         self.label_3 = QtWidgets.QLabel(parent=self.frame_5)
         self.label_3.setObjectName("label_3")
         self.horizontalLayout_2.addWidget(self.label_3)
-        self.lineEdit = QtWidgets.QLineEdit(parent=self.frame_5)
-        self.lineEdit.setObjectName("lineEdit")
-        self.horizontalLayout_2.addWidget(self.lineEdit)
+        self.lineEmail = QtWidgets.QLineEdit(parent=self.frame_5)
+        self.lineEmail.setObjectName("lineEmail")
+        self.horizontalLayout_2.addWidget(self.lineEmail)
         self.horizontalLayout_2.setStretch(0, 3)
         self.horizontalLayout_2.setStretch(1, 8)
         self.verticalLayout_2.addWidget(self.frame_5)
@@ -108,13 +113,30 @@ class Ui_Dialog(object):
         self.label_4 = QtWidgets.QLabel(parent=self.frame_4)
         self.label_4.setObjectName("label_4")
         self.horizontalLayout_3.addWidget(self.label_4)
-        self.lineEdit_2 = QtWidgets.QLineEdit(parent=self.frame_4)
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.horizontalLayout_3.addWidget(self.lineEdit_2)
+        self.linePassword = QtWidgets.QLineEdit(parent=self.frame_4)
+        self.linePassword.setObjectName("linePassword")
+        self.horizontalLayout_3.addWidget(self.linePassword)
         self.horizontalLayout_3.setStretch(0, 3)
         self.horizontalLayout_3.setStretch(1, 8)
         self.verticalLayout_2.addWidget(self.frame_4)
-        self.verticalLayout_2.setStretch(0, 5)
+        self.frameMsg = QtWidgets.QFrame(parent=self.frame)
+        self.frameMsg.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frameMsg.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frameMsg.setObjectName("frameMsg")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frameMsg)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.textMsg = QtWidgets.QLabel(parent=self.frameMsg)
+        self.textMsg.setText("")
+        self.textMsg.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.textMsg.setObjectName("textMsg")
+        self.verticalLayout_4.addWidget(self.textMsg)
+        self.verticalLayout_2.addWidget(self.frameMsg)
+        self.verticalLayout_2.setStretch(0, 4)
+        self.verticalLayout_2.setStretch(1, 1)
+        self.verticalLayout_2.setStretch(2, 1)
+        self.verticalLayout_2.setStretch(3, 1)
         self.verticalLayout.addWidget(self.frame)
         self.frame_2 = QtWidgets.QFrame(parent=Dialog)
         self.frame_2.setStyleSheet("QLabel{\n"

@@ -9,8 +9,10 @@ import Clases.UtilsMessage as messages
 import os,re
 
 class ModalUsuario(QDialog):
-    def __init__(self):
+    def __init__(self,info=None):
         super().__init__()
+        self.info_user=info
+        self.is_edit=False
         self.SVG_BASE = utils.SVG_BASE
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
@@ -30,6 +32,7 @@ class ModalUsuario(QDialog):
         self.ui.btnSalir.clicked.connect(self.cerrarDialogo)
         self.ui.btnViewPass.clicked.connect(self.mostrarPassword)
         self.ui.btnGuardar.clicked.connect(self.guardarUsuario)
+        self.cargarDatos()
     def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
         full_path = os.path.join(self.SVG_BASE, filename)
         renderer = QSvgRenderer(full_path)
@@ -62,31 +65,62 @@ class ModalUsuario(QDialog):
             self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(40,40)))
             self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Password)
             self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Password)
-    
+    def cargarDatos(self):
+        if self.info_user is not None:
+            self.is_edit=True
+            self.ui.frame_6.setVisible(False)
+            self.ui.frame_8.setVisible(False)
+            self.ui.lineEmail.setText(self.info_user['correo'])
+            self.ui.lineNameUser.setText(self.info_user['nombre'])
+            self.ui.combTipoUser.setCurrentIndex(next((item['id'] for item in utils.LIST_TIPO if item['tipo'] == self.info_user['tipo']), 0))
+            self.ui.combUsoApp.setCurrentIndex(next((item['id'] for item in utils.LIST_USO_APP if item['tipo']==self.info_user['app']),0))
     def guardarUsuario(self):
         nombreUser = self.ui.lineNameUser.text()
         correo = self.ui.lineEmail.text()
         password = self.ui.linePassword.text()
         repassword = self.ui.linePasswordR.text()
-        if password == repassword:
+        if (password == repassword and password!='' and repassword!='') or self.is_edit==True:
             if utils.es_correo_valido(correo):
                 tipoApp = self.ui.combUsoApp.currentIndex()
                 tipoUser = self.ui.combTipoUser.currentIndex()
                 if tipoApp!=0 and tipoUser!=0:
-                    datos = {
-                        'nombre':nombreUser,
-                        'correo':correo,
-                        'contrasenia':password,
-                        'tipo': tipoUser,
-                        'app': tipoApp
-                    }
-                    print("empezando a registrar")
-                    result = self.api.NuevoUsuario(datos)
-                    if 'ok' in result:
-                        print("registro correto")
-                        messages.mostrar_toast_correcto(self,"Registro correcto")
+                    if self.is_edit == False:
+                        datos = {
+                            'nombre':nombreUser,
+                            'correo':correo,
+                            'contrasenia':password,
+                            'tipo':next((item['tipo'] for item in utils.LIST_TIPO if item['id'] == tipoUser), 'X'),
+                            'app':next((item['tipo'] for item in utils.LIST_USO_APP if item['id'] == tipoApp), 'X')
+                        }
+                        print(datos)
+                        result = self.api.NuevoUsuario(datos)
+                        print(result)
+                        if 'ok' in result:
+                            print("registro correto")
+                            messages.mostrar_toast_correcto(self,"Registro correcto")
+                            self.accept()
+                        elif 'error' in result:
+                            messages.mostrar_toast_error(self,result['error'])
+                        else:
+                            messages.mostrar_toast_error(self,result['detail'][0]['msg'])
                     else:
-                        print(result['error'])
+                        datos = {
+                            'id':self.info_user['id'],
+                            'nombre':nombreUser,
+                            'correo':correo,
+                            'tipo':next((item['tipo'] for item in utils.LIST_TIPO if item['id'] == tipoUser), 'X'),
+                            'app':next((item['tipo'] for item in utils.LIST_USO_APP if item['id'] == tipoApp), 'X')
+                        }
+                        print(datos)
+                        result = self.api.ActualizarUsuario(datos)
+                        print(result)
+                        if 'ok' in result:
+                            messages.mostrar_toast_correcto(self,"Datos del Usuario Actualizado")
+                            self.accept()
+                        elif 'error' in result:
+                            messages.mostrar_toast_error(self,result['error'])
+                        else:
+                            messages.mostrar_toast_error(self,result['detail'][0]['msg'])
                 else:
                     if tipoApp==0:
                         messages.mostrar_toast_error(self,"No eligio tipo de aplicacion")
