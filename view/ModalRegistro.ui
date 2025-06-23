@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>828</width>
-    <height>505</height>
+    <height>577</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -238,6 +238,17 @@ color:rgb(238, 238, 238);
                   </layout>
                  </widget>
                 </item>
+                <item>
+                 <layout class="QVBoxLayout" name="vL_lb_valid_message">
+                  <item>
+                   <widget class="QLabel" name="lb_valid_message">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
                </layout>
               </widget>
              </item>
@@ -395,7 +406,7 @@ color:black;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="btnGuardarCli">
+              <widget class="QPushButton" name="btnSiguiente">
                <property name="styleSheet">
                 <string notr="true">QPushButton{
 		background:rgb(75, 181, 96);
@@ -496,7 +507,7 @@ color:rgb(238, 238, 238);
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,1">
+               <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -880,6 +891,12 @@ color:black;
              </item>
              <item>
               <widget class="QFrame" name="frame_23">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
                </property>
@@ -887,7 +904,16 @@ color:black;
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_16">
-                <item>
+                <property name="spacing">
+                 <number>6</number>
+                </property>
+                <property name="leftMargin">
+                 <number>9</number>
+                </property>
+                <property name="topMargin">
+                 <number>9</number>
+                </property>
+                <item alignment="Qt::AlignBottom">
                  <widget class="QPushButton" name="btnAtrasVeh">
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
@@ -905,7 +931,7 @@ background:rgb(175, 28, 35)
                   </property>
                  </widget>
                 </item>
-                <item>
+                <item alignment="Qt::AlignBottom">
                  <widget class="QPushButton" name="btnGuardarVehiculo">
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
