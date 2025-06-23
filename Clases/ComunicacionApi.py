@@ -70,4 +70,26 @@ class ComunicacionApi(object):
         except Exception as err:
             print(f"error: {err}")
             return ApiResponse(error="Error conectando al servidor")
-        
+    def searchCodigo(self,codigo):
+        try:
+            response = requests.post(self.url+'/persona/buscarCodigo',timeout=5,json=codigo)
+            response.raise_for_status()
+            response = response.json()
+            return ApiResponse(data=response['ok'])
+        except HTTPError as err:
+            if err.response.status_code==400:
+                return ApiResponse(error=err.response.text)
+            else:
+                print(err)
+                return ApiResponse(error="Error con el servidor")
+        except Exception as err:
+            return ApiResponse(error="Error conectando al servidor")
+    def ObtenerClientes(self):
+        try:
+            result = requests.get(self.url+"/persona",timeout=5)
+            if result.status_code == 200:
+                return result.json()
+            else:
+                return result.json()
+        except (requests.RequestException,requests.ConnectTimeout):
+            return {'error':'No hay conexion a la api'}

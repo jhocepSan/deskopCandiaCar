@@ -34,7 +34,8 @@ class ModalRegistro(QDialog):
         self.ui.btnSalir.clicked.connect(self.cerrarDialogo)
         self.ui.btnAtrasVeh.clicked.connect(self.irAcliente)
         self.ui.btnSiguiente.clicked.connect(self.validateCliente)
-
+        self.ui.btnBuscarCodigo.clicked.connect(self.buscarPorCodigo)
+        self.ui.btnGenCodigo.clicked.connect(self.generarCodigo)
     def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
         full_path = os.path.join(self.SVG_BASE, filename)
         renderer = QSvgRenderer(full_path)
@@ -86,7 +87,13 @@ class ModalRegistro(QDialog):
         self.ui.tabWidget.setCurrentIndex(0)
 
     def validateCliente(self):
+        if self.ui.lineCodigoCli.text()=='':
+            self.ui.framValid.setStyleSheet("background-color: #fc8484; border-radius: 10px;")
+            self.ui.lb_valid_message.setText("El codigo es requerido para registro")
+            self.ui.lineCodigoCli.setFocus()
+            return
         if self.ui.lineNombres.text() == "" or self.ui.lineApellidos.text() == "":
+            self.ui.framValid.setStyleSheet("background-color: #fc8484; border-radius: 10px;")
             self.ui.lb_valid_message.setText("Campos requeridos vacios")
             self.ui.lineNombres.setFocus()
             return
@@ -94,6 +101,7 @@ class ModalRegistro(QDialog):
 
     def guardarDatosCliente(self):
         if self.persona:
+            self.irARegistroVehiculo()
             return
         nombres = self.ui.lineNombres.text()        
         apellidos = self.ui.lineApellidos.text()        
@@ -112,7 +120,26 @@ class ModalRegistro(QDialog):
             loading.close()
             messages.mostrar_toast_error(self, result.error)
         else:    
+            self.ui.framValid.setStyleSheet("background-color: #84fc93; border-radius: 10px;")
+            self.ui.lb_valid_message.setText("Guardado Correctamente")
             self.persona = result.data
             loading.close()
             messages.mostrar_toast_correcto(self, "Registro correcto")
             self.irARegistroVehiculo()
+
+    def buscarPorCodigo(self):
+        codigo = self.ui.lineCodigoCli.text()
+        if codigo =='':
+            messages.mostrar_toast_error(self,"No hay Cliente, con el codigo quer busca ...")
+            return
+        result = self.api.searchCodigo({'codigo':codigo})
+        if result.error:
+            messages.mostrar_toast_error(self,result.error)
+        else:
+            self.ui.lineNombres.setText(result.data['nombres'])
+            self.ui.lineApellidos.setText(result.data['apellidos'])
+            self.ui.lineDireccion.setText(result.data['direccion'])
+            self.ui.lineTelefono.setText(result.data['telefono'])
+            self.persona = result.data
+    def generarCodigo(self):
+        pass

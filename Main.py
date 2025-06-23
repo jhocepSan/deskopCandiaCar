@@ -97,9 +97,25 @@ class MainWindow(QMainWindow):
     def mostrarVista(self,val):
         self.ui.stackedWidget.setCurrentIndex(val)
         if val==1:
+            self.cargarUsarios()
+        if val==3:
             self.cargarClientes()
-            
     def cargarClientes(self):
+        result = self.api.ObtenerClientes()
+        if 'ok' in result:
+            self.ui.listaClientes.clear()
+            self.ui.listaClientes.setRowCount(len(result['ok']))
+            self.ui.listaClientes.setColumnCount(11)
+            self.ui.listaClientes.setHorizontalHeaderLabels(['ID','CODIGO',"NOMBRES","APELLIDOS","DIRECCION","TELEFONO",'AP PERMISO',"","",""])
+            for row,cliente in enumerate(result['ok']):
+                self.ui.listaClientes.setItem(row,0,QTableWidgetItem(str(cliente['idpersona'])))
+                self.ui.listaClientes.setItem(row,1,QTableWidgetItem(cliente['codigo']))
+                self.ui.listaClientes.setItem(row,2,QTableWidgetItem(cliente['nombres']))
+                self.ui.listaClientes.setItem(row,3,QTableWidgetItem(cliente['apellidos']))
+                self.ui.listaClientes.setItem(row,4,QTableWidgetItem(cliente['direccion']))
+                self.ui.listaClientes.setItem(row,5,QTableWidgetItem(str(cliente['telefono'])))
+        print(result)
+    def cargarUsarios(self):
         result = self.api.ObtenerUsuarios()
         if 'ok' in result:
             self.ui.tableWidget.clear()
@@ -185,13 +201,13 @@ class MainWindow(QMainWindow):
         result = dialog.exec()
         if result == QDialog.DialogCode.Accepted:
             print("creado usuario")
-            self.cargarClientes()
+            self.cargarUsarios()
     def editarEstadoUser(self,dato,estado):
         result = self.api.CambiarEstadoUser({'id':dato['id'],'estado':estado})
         print(result)
         if 'ok' in result:
             msgUtils.mostrar_toast_correcto(self,result['ok'])
-            self.cargarClientes()
+            self.cargarUsarios()
         elif 'detail' in result:
             msgUtils.mostrar_toast_error(self,"Error: "+str(result['detail']))
         else:
@@ -203,7 +219,7 @@ class MainWindow(QMainWindow):
         dialog = ModalUsuario(dato)
         result = dialog.exec()
         if result == QDialog.DialogCode.Accepted:
-            self.cargarClientes()
+            self.cargarUsarios()
 
 
                 

@@ -275,7 +275,7 @@ font:77 16px 'ArialBlack';
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page_servicios"/>
          <widget class="QWidget" name="page_usuarios">
