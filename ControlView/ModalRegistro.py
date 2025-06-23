@@ -7,7 +7,6 @@ from view.ModalRegistro import Ui_Dialog
 import Clases.Utils as utils
 import Clases.UtilsMessage as messages
 import os
-from requests import RequestException
 
 class ModalRegistro(QDialog):
     def __init__(self):
@@ -33,9 +32,8 @@ class ModalRegistro(QDialog):
         self.iniciar_extras()
         QToolTip.setFont(QFont('Arial', 10))
         self.ui.btnSalir.clicked.connect(self.cerrarDialogo)
-        self.ui.btnSiguiente.clicked.connect(self.irARegistroVehiculo)
         self.ui.btnAtrasVeh.clicked.connect(self.irAcliente)
-        self.ui.btnGuardarCliente.clicked.connect(self.validateCliente)
+        self.ui.btnSiguiente.clicked.connect(self.validateCliente)
 
     def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
         full_path = os.path.join(self.SVG_BASE, filename)
@@ -84,11 +82,6 @@ class ModalRegistro(QDialog):
         self.ui.tabWidget.setTabEnabled(1,True)
         self.ui.tabWidget.setCurrentIndex(1)
 
-        if self.persona:
-            self.ui.lb_idPersona_value.setText(str(self.persona['idpersona']))
-            self.ui.lb_personaNombres_value.setText(self.persona['nombres'])
-            self.ui.lb_personaApellidos_value.setText(self.persona['apellidos'])
-
     def irAcliente(self):
         self.ui.tabWidget.setCurrentIndex(0)
 
@@ -100,8 +93,8 @@ class ModalRegistro(QDialog):
         self.guardarDatosCliente()
 
     def guardarDatosCliente(self):
-        self.ui.lb_valid_message.setText("Campos requeridos vacios")
-        
+        if self.persona:
+            return
         nombres = self.ui.lineNombres.text()        
         apellidos = self.ui.lineApellidos.text()        
         telefono = self.ui.lineTelefono.text()        
@@ -109,22 +102,17 @@ class ModalRegistro(QDialog):
         codigo = self.ui.lineCodigoCli.text()
         
         loading = messages.mostrar_WIP(self)
-        try:
-            result = self.api.NuevaPersona({"nombres": nombres, 
+        
+        result = self.api.NuevaPersona({"nombres": nombres, 
                                             "apellidos": apellidos,
                                             "telefono": telefono,
                                             "direccion": direccion,
                                             "codigo": codigo})
-            self.persona = result
+        if result.error:
+            loading.close()
+            messages.mostrar_toast_error(self, result.error)
+        else:    
+            self.persona = result.data
             loading.close()
             messages.mostrar_toast_correcto(self, "Registro correcto")
             self.irARegistroVehiculo()
-            self.ui.lineNombres.clear()
-            self.ui.lineApellidos.clear()
-            self.ui.lineTelefono.clear()
-            self.ui.lineDireccion.clear()
-            self.ui.lineCodigoCli.clear()
-        except RequestException as e:
-            loading.close()
-            print(f"error en registro de persona: {e}")
-            messages.mostrar_toast_error(self, "Error al registar persona")

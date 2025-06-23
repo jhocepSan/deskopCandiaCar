@@ -1,5 +1,7 @@
 import requests, json
+from requests.exceptions import HTTPError
 import Clases.Utils as utils
+from Clases.ApiResponse import ApiResponse
 class ComunicacionApi(object):
     def __init__(self):
         self.url = utils.URL_SERVER
@@ -28,6 +30,19 @@ class ComunicacionApi(object):
 
     def NuevaPersona(self, datos):
         print(datos)
-        result = requests.post(self.url+'/persona', timeout=5, json=datos)
-        result = result.json()
-        return result['ok']
+        try:
+            response = requests.post(self.url+'/persona', timeout=5, json=datos)
+            response.raise_for_status()
+            response = response.json()
+            return ApiResponse(data=response['ok'])
+        except HTTPError as err:
+            print(f"error en registro de persona: {err}")
+            #mejorar manejo error BAD request
+            if err.response.status_code == 400:
+                return ApiResponse(error=err.response.text)
+            else:
+                return ApiResponse(error="Error con el servidor")
+        except Exception as err:
+            print(f"error: {err}")
+            return ApiResponse(error="Error conectando al servidor")
+        
