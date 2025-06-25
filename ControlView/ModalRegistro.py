@@ -7,7 +7,7 @@ from view.ModalRegistro import Ui_Dialog
 import Clases.Utils as utils
 import Clases.UtilsMessage as messages
 import os
-
+from Clases.payloads.vehiculo import VehiculoCreate 
 class ModalRegistro(QDialog):
     def __init__(self):
         super().__init__()
@@ -25,6 +25,8 @@ class ModalRegistro(QDialog):
         """)
         self.api = ComunicacionApi()
         self.persona = None
+        self.vehiculo = None
+        self.tipoVehiculos: list = None
 
         self.ui.tabWidget.setCurrentIndex(0)
         self.ui.tabWidget.setTabEnabled(1,False)
@@ -36,6 +38,11 @@ class ModalRegistro(QDialog):
         self.ui.btnSiguiente.clicked.connect(self.validateCliente)
         self.ui.btnBuscarCodigo.clicked.connect(self.buscarPorCodigo)
         self.ui.btnGenCodigo.clicked.connect(self.generarCodigo)
+        self.ui.btnGuardarVehiculo.clicked.connect(self.validateVehiculo)
+        self.ui.linePlaca.editingFinished.connect(self.clearMsgErr)
+
+        self.fill_tipoVehiculos()
+
     def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
         full_path = os.path.join(self.SVG_BASE, filename)
         renderer = QSvgRenderer(full_path)
@@ -79,9 +86,26 @@ class ModalRegistro(QDialog):
     def cerrarDialogo(self):
         self.reject()
 
+    def fill_tipoVehiculos(self):
+        response = self.api.getTipoVehiculos()
+        if response.error:
+            messages.mostrar_toast_error(self, response.error)
+            return
+        else:
+            self.tipoVehiculos = response.data 
+            for tipo in response.data:
+                self.ui.comboTipoVehiculo.addItem(tipo['nombre'])
+
+    def clearMsgErr(self):
+        self.ui.lb_msg_err.clear()
+
     def irARegistroVehiculo(self):
         self.ui.tabWidget.setTabEnabled(1,True)
         self.ui.tabWidget.setCurrentIndex(1)
+
+    def irARegistroDetalles(self):
+        self.ui.tabWidget.setTabEnabled(2,True)
+        self.ui.tabWidget.setCurrentIndex(2)
 
     def irAcliente(self):
         self.ui.tabWidget.setCurrentIndex(0)
@@ -98,6 +122,14 @@ class ModalRegistro(QDialog):
             self.ui.lineNombres.setFocus()
             return
         self.guardarDatosCliente()
+
+    def validateVehiculo(self):
+        if self.ui.linePlaca.text()=='':
+            self.ui.framValid.setStyleSheet("background-color: #fc8484; border-radius: 10px;")
+            self.ui.lb_msg_err.setText("La placa es requerido para registro")
+            self.ui.linePlaca.setFocus()
+            return
+        self.guardarDatosVehiculo()
 
     def guardarDatosCliente(self):
         if self.persona:
@@ -126,6 +158,36 @@ class ModalRegistro(QDialog):
             loading.close()
             messages.mostrar_toast_correcto(self, "Registro correcto")
             self.irARegistroVehiculo()
+
+    def guardarDatosVehiculo(self):
+        if self.vehiculo:
+            self.irARegistroDetalles()
+            return
+        payload = VehiculoCreate(modelo=self.ui.lineModelo.text(),
+                                       placa=self.ui.linePlaca.text(),
+                                       color=self.ui.lineColor.text(),
+                                       motor=self.ui.lineMotor.text(),
+                                       km=self.ui.lineKilome.text(),
+                                       tipoNombre=self.ui.comboTipoVehiculo.currentText())
+
+        tipoId = [tipo['id'] for tipo in self.tipoVehiculos if tipo['nombre'] == payload.tipoNombre]
+        payload.tipoId = tipoId.pop() if tipoId else None 
+        
+        loading = messages.mostrar_WIP(self)
+        
+        result = self.api.registrarVehiculo(payload)
+        if result.error:
+            loading.close()
+            self.ui.framValid.setStyleSheet("background-color: #fc8484; border-radius: 10px;")
+            self.ui.lb_msg_err.setText(result.error)
+            #messages.mostrar_toast_error(self, result.error)
+        else:    
+            loading.close()
+            self.ui.framValid.setStyleSheet("background-color: #84fc93; border-radius: 10px;")
+            self.ui.lb_valid_message.setText("Guardado Correctamente")
+            self.vehiculo = result.data
+            #messages.mostrar_toast_correcto(self, "Registro correcto")
+            self.irARegistroDetalles()
 
     def buscarPorCodigo(self):
         codigo = self.ui.lineCodigoCli.text()

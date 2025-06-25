@@ -1,6 +1,7 @@
 import requests, json
 from requests.exceptions import HTTPError
 import Clases.Utils as utils
+from Clases.payloads.vehiculo import VehiculoCreate
 from Clases.ApiResponse import ApiResponse
 class ComunicacionApi(object):
     def __init__(self):
@@ -70,6 +71,24 @@ class ComunicacionApi(object):
         except Exception as err:
             print(f"error: {err}")
             return ApiResponse(error="Error conectando al servidor")
+
+    def registrarVehiculo(self, datos: VehiculoCreate):
+        datos = datos.__dict__
+        print(datos)
+        try:
+            response = requests.post(self.url+'/vehiculo', timeout=5, json=datos)
+            response.raise_for_status()
+            return ApiResponse(data=response.json())
+        except HTTPError as err:
+            print(f"error en registro vehiculo: {err}")
+            if err.response.status_code == 400:
+                return ApiResponse(error=err.response.text)
+            else:
+                return ApiResponse(error="Error con el servidor")
+        except Exception as err:
+            print(f"error: {err}")
+            return ApiResponse(error="Error conectando al servidor")
+
     def searchCodigo(self,codigo):
         try:
             response = requests.post(self.url+'/persona/buscarCodigo',timeout=5,json=codigo)
@@ -93,3 +112,13 @@ class ComunicacionApi(object):
                 return result.json()
         except (requests.RequestException,requests.ConnectTimeout):
             return {'error':'No hay conexion a la api'}
+        
+    def getTipoVehiculos(self):
+        try:
+            result = requests.get(self.url+"/vehiculo/tipos",timeout=5)
+            result.raise_for_status()
+            result = result.json()
+            return ApiResponse(data=result)
+        except (requests.RequestException, requests.ConnectTimeout):
+            return ApiResponse(error="Error recuperando tipo vehiculos")
+    

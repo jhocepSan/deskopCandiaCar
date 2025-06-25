@@ -68,7 +68,7 @@
 }</string>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="tab">
          <property name="styleSheet">
@@ -819,6 +819,16 @@ color:rgb(238, 238, 238);
                      </layout>
                     </widget>
                    </item>
+                   <item>
+                    <widget class="QLabel" name="lb_msg_err">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="margin">
+                      <number>10</number>
+                     </property>
+                    </widget>
+                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -843,12 +853,25 @@ color:rgb(238, 238, 238);
                       <item>
                        <widget class="QLabel" name="label_12">
                         <property name="text">
-                         <string>TIPO DE AUTO</string>
+                         <string>TIPO VEHICULO</string>
                         </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboTipoVehiculo"/>
+                       <widget class="QComboBox" name="comboTipoVehiculo">
+                        <property name="editable">
+                         <bool>true</bool>
+                        </property>
+                        <property name="insertPolicy">
+                         <enum>QComboBox::InsertAtTop</enum>
+                        </property>
+                        <property name="sizeAdjustPolicy">
+                         <enum>QComboBox::AdjustToContents</enum>
+                        </property>
+                        <property name="placeholderText">
+                         <string>buscar...</string>
+                        </property>
+                       </widget>
                       </item>
                      </layout>
                     </widget>
