@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication,QMainWindow,QToolTip,QDialog
+from PyQt6.QtWidgets import QApplication,QMainWindow,QToolTip,QDialog, QLineEdit
 from Clases.ComunicacionApi import ComunicacionApi
 from PyQt6.QtSvg import QSvgRenderer
 from PyQt6.QtGui import QFont,QIcon,QPixmap,QPainter,QColor
@@ -39,8 +39,13 @@ class ModalRegistro(QDialog):
         self.ui.btnBuscarCodigo.clicked.connect(self.buscarPorCodigo)
         self.ui.btnGenCodigo.clicked.connect(self.generarCodigo)
         self.ui.btnGuardarVehiculo.clicked.connect(self.validateVehiculo)
-        self.ui.linePlaca.editingFinished.connect(self.clearMsgErr)
 
+
+        self.handle_editFinish_vehiculo([self.ui.lineModelo,
+                                         self.ui.linePlaca,
+                                         self.ui.lineColor,
+                                         self.ui.lineMotor,
+                                         self.ui.lineKilome])
         self.fill_tipoVehiculos()
 
     def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
@@ -85,6 +90,10 @@ class ModalRegistro(QDialog):
 
     def cerrarDialogo(self):
         self.reject()
+
+    def handle_editFinish_vehiculo(self, fields: list[QLineEdit]):
+        for field in fields:
+            field.editingFinished.connect(self.clearMsgErr)
 
     def fill_tipoVehiculos(self):
         response = self.api.getTipoVehiculos()
@@ -178,15 +187,11 @@ class ModalRegistro(QDialog):
         result = self.api.registrarVehiculo(payload)
         if result.error:
             loading.close()
-            self.ui.framValid.setStyleSheet("background-color: #fc8484; border-radius: 10px;")
-            self.ui.lb_msg_err.setText(result.error)
-            #messages.mostrar_toast_error(self, result.error)
+            messages.mostrar_toast_error(self, result.error)
         else:    
             loading.close()
-            self.ui.framValid.setStyleSheet("background-color: #84fc93; border-radius: 10px;")
-            self.ui.lb_valid_message.setText("Guardado Correctamente")
             self.vehiculo = result.data
-            #messages.mostrar_toast_correcto(self, "Registro correcto")
+            messages.mostrar_toast_correcto(self, "Registro correcto")
             self.irARegistroDetalles()
 
     def buscarPorCodigo(self):
