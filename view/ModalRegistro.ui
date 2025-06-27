@@ -563,7 +563,7 @@ color:rgb(238, 238, 238);
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0">
+            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="4,0">
              <property name="spacing">
               <number>0</number>
              </property>
@@ -587,7 +587,7 @@ color:rgb(238, 238, 238);
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,0">
+               <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="4,4">
                 <property name="leftMargin">
                  <number>0</number>
                 </property>
@@ -610,6 +610,41 @@ color:rgb(238, 238, 238);
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_5">
                    <item>
+                    <widget class="QFrame" name="frame_18">
+                     <property name="frameShape">
+                      <enum>QFrame::NoFrame</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                     <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="3,8">
+                      <item>
+                       <widget class="QLabel" name="label_12">
+                        <property name="text">
+                         <string>TIPO VEHICULO</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QComboBox" name="comboTipoVehiculo">
+                        <property name="editable">
+                         <bool>true</bool>
+                        </property>
+                        <property name="insertPolicy">
+                         <enum>QComboBox::InsertAtTop</enum>
+                        </property>
+                        <property name="sizeAdjustPolicy">
+                         <enum>QComboBox::AdjustToContents</enum>
+                        </property>
+                        <property name="placeholderText">
+                         <string>buscar...</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item>
                     <widget class="QFrame" name="frame_15">
                      <property name="font">
                       <font>
@@ -617,7 +652,7 @@ color:rgb(238, 238, 238);
                       </font>
                      </property>
                      <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
+                      <enum>QFrame::NoFrame</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
@@ -659,7 +694,7 @@ color:rgb(238, 238, 238);
                       </font>
                      </property>
                      <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
+                      <enum>QFrame::NoFrame</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
@@ -701,7 +736,7 @@ color:rgb(238, 238, 238);
                       </font>
                      </property>
                      <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
+                      <enum>QFrame::NoFrame</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
@@ -743,7 +778,7 @@ color:rgb(238, 238, 238);
                       </font>
                      </property>
                      <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
+                      <enum>QFrame::NoFrame</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
@@ -785,7 +820,7 @@ color:rgb(238, 238, 238);
                       </font>
                      </property>
                      <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
+                      <enum>QFrame::NoFrame</enum>
                      </property>
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
@@ -819,16 +854,6 @@ color:rgb(238, 238, 238);
                      </layout>
                     </widget>
                    </item>
-                   <item>
-                    <widget class="QLabel" name="lb_msg_err">
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="margin">
-                      <number>10</number>
-                     </property>
-                    </widget>
-                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -840,42 +865,19 @@ color:rgb(238, 238, 238);
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
-                   <item>
-                    <widget class="QFrame" name="frame_18">
-                     <property name="frameShape">
-                      <enum>QFrame::StyledPanel</enum>
-                     </property>
-                     <property name="frameShadow">
-                      <enum>QFrame::Raised</enum>
-                     </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="3,8">
-                      <item>
-                       <widget class="QLabel" name="label_12">
-                        <property name="text">
-                         <string>TIPO VEHICULO</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="comboTipoVehiculo">
-                        <property name="editable">
-                         <bool>true</bool>
-                        </property>
-                        <property name="insertPolicy">
-                         <enum>QComboBox::InsertAtTop</enum>
-                        </property>
-                        <property name="sizeAdjustPolicy">
-                         <enum>QComboBox::AdjustToContents</enum>
-                        </property>
-                        <property name="placeholderText">
-                         <string>buscar...</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
+                  <layout class="QVBoxLayout" name="verticalLayout_6" stretch="4,4">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
                    <item>
                     <widget class="QFrame" name="frame_19">
                      <property name="frameShape">
@@ -884,49 +886,78 @@ color:rgb(238, 238, 238);
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="0,0,0">
+                     <layout class="QVBoxLayout" name="verticalLayout_12" stretch="0,0">
                       <item>
-                       <widget class="QLabel" name="label_13">
-                        <property name="text">
-                         <string>FOTO PLACA</string>
-                        </property>
-                       </widget>
+                       <layout class="QVBoxLayout" name="vL_fotoplacaPreview" stretch="0,4">
+                        <item>
+                         <widget class="QLabel" name="lb_fotoplacaPath">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lb_fotoplacaPreview">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="btnFotoPlaca">
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
+                       <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="1,0,0,0">
+                        <item>
+                         <widget class="QLabel" name="label_13">
+                          <property name="text">
+                           <string>FOTO PLACA</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnFotoPlaca">
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton{
 color:black;
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Foto</string>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>25</width>
-                          <height>25</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="btnSubFplaca">
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
+                          </property>
+                          <property name="text">
+                           <string>Foto</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>25</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnSubFplaca">
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton{
 color:black;
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Subir</string>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>25</width>
-                          <height>25</height>
-                         </size>
-                        </property>
-                       </widget>
+                          </property>
+                          <property name="text">
+                           <string>Subir</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>25</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_rm_fotoplaca">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
                     </widget>
@@ -939,49 +970,78 @@ color:black;
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="0,0,0">
+                     <layout class="QVBoxLayout" name="verticalLayout_11" stretch="1,0">
                       <item>
-                       <widget class="QLabel" name="label_14">
-                        <property name="text">
-                         <string>FOTO VEHICULO</string>
-                        </property>
-                       </widget>
+                       <layout class="QVBoxLayout" name="vL_fotoPreview" stretch="0,4">
+                        <item>
+                         <widget class="QLabel" name="lb_fotoPath">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lb_fotoPreview">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="btnFotoVehi">
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
+                       <layout class="QHBoxLayout" name="hL_foto_actions" stretch="1,0,0,0">
+                        <item>
+                         <widget class="QLabel" name="label_14">
+                          <property name="text">
+                           <string>FOTO VEHICULO</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnFotoVehi">
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton{
 color:black;
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Foto</string>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>25</width>
-                          <height>25</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QPushButton" name="btnSubFvehiculo">
-                        <property name="styleSheet">
-                         <string notr="true">QPushButton{
+                          </property>
+                          <property name="text">
+                           <string>Foto</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>25</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btnSubFvehiculo">
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton{
 color:black;
 }</string>
-                        </property>
-                        <property name="text">
-                         <string>Subir</string>
-                        </property>
-                        <property name="iconSize">
-                         <size>
-                          <width>25</width>
-                          <height>25</height>
-                         </size>
-                        </property>
-                       </widget>
+                          </property>
+                          <property name="text">
+                           <string>Subir</string>
+                          </property>
+                          <property name="iconSize">
+                           <size>
+                            <width>25</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_rm_fotovehiculo">
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
                     </widget>
@@ -1006,7 +1066,7 @@ color:black;
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_16">
+               <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="4,2">
                 <property name="spacing">
                  <number>6</number>
                 </property>
@@ -1016,41 +1076,59 @@ color:black;
                 <property name="topMargin">
                  <number>9</number>
                 </property>
-                <item alignment="Qt::AlignBottom">
-                 <widget class="QPushButton" name="btnAtrasVeh">
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton{
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="lb_msg_err">
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="margin">
+                     <number>10</number>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_20">
+                  <item>
+                   <widget class="QPushButton" name="btnAtrasVeh">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
 background:rgb(175, 28, 35)
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>Atras</string>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>25</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
-                <item alignment="Qt::AlignBottom">
-                 <widget class="QPushButton" name="btnGuardarVehiculo">
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton{
+                    </property>
+                    <property name="text">
+                     <string>Atras</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>25</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="btnGuardarVehiculo">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
 	background:rgb(75, 181, 96);
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>Siguiente</string>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>25</width>
-                    <height>25</height>
-                   </size>
-                  </property>
-                 </widget>
+                    </property>
+                    <property name="text">
+                     <string>Siguiente</string>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>25</width>
+                      <height>25</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </widget>
