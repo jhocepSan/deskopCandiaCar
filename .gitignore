@@ -5,3 +5,5 @@ __pycache__/
 *.log
 .vscode/*
 ./public/carCandi.json
+.idea/
+./public/vehiculos/*

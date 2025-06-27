@@ -1,4 +1,4 @@
-import re,os,json,jwt
+import re,os,json,jwt, shutil
 
 URL_SERVER = 'http://192.168.1.9:4001'
 RUTA_SESSION = './public/carCandi.json'
@@ -17,7 +17,7 @@ LIST_USO_APP = [
     {'id':4,'nombre':'TODOS','tipo':'T'}
 ]
 SECRET_APP ='jj@ch'
-
+public_path_vehiculos = os.path.abspath("./public/vehiculos/")
 def es_correo_valido(correo: str) -> bool:
     patron = r'^[\w\.-]+@[\w\.-]+\.\w{2,}$'
     return re.match(patron, correo) is not None
@@ -40,3 +40,11 @@ def save_session_user(usuario) -> bool:
         return True
     except:
         return False
+
+def upload_photo_to_public(file_path: str):
+    try:
+        shutil.copy(file_path, public_path_vehiculos)
+    except FileNotFoundError as e:
+        print(f"Error: Specified file or directory not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")

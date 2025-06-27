@@ -1,7 +1,7 @@
 import requests, json
 from requests.exceptions import HTTPError
 import Clases.Utils as utils
-from Clases.payloads.vehiculo import VehiculoCreate
+from Clases.payloads.vehiculo import VehiculoModel
 from Clases.ApiResponse import ApiResponse
 class ComunicacionApi(object):
     def __init__(self):
@@ -72,11 +72,28 @@ class ComunicacionApi(object):
             print(f"error: {err}")
             return ApiResponse(error="Error conectando al servidor")
 
-    def registrarVehiculo(self, datos: VehiculoCreate):
+    def registrar_vehiculo(self, datos: VehiculoModel):
         datos = datos.__dict__
         print(datos)
         try:
             response = requests.post(self.url+'/vehiculo', timeout=5, json=datos)
+            response.raise_for_status()
+            return ApiResponse(data=response.json())
+        except HTTPError as err:
+            print(f"error en registro vehiculo: {err}")
+            if err.response.status_code == 400:
+                return ApiResponse(error=err.response.text)
+            else:
+                return ApiResponse(error="Error con el servidor")
+        except Exception as err:
+            print(f"error: {err}")
+            return ApiResponse(error="Error conectando al servidor")
+
+    def update_vehiculo(self, datos: VehiculoModel):
+        datos = datos.__dict__
+        print(datos)
+        try:
+            response = requests.put(self.url+'/vehiculo', timeout=5, json=datos)
             response.raise_for_status()
             return ApiResponse(data=response.json())
         except HTTPError as err:
