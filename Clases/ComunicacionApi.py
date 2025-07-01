@@ -29,12 +29,15 @@ class ComunicacionApi(object):
     def IniciarSesion(self,datos):
         try:
             result = requests.post(self.url+'/auth/signin',timeout=5,json=datos)
+            result.raise_for_status()
             if result.status_code == 200:
                 return result.json()
             else:
                 return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
+        except requests.ConnectTimeout as err:
             return {'error':"No hay conexion a la api"}
+        except requests.RequestException as err:
+            return {'error':"Error al iniciar sesion"}
     def ActualizarUsuario(self,datos):
         try:
             result = requests.post(self.url+'/usuario/update',timeout=5,json=datos)

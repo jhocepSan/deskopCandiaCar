@@ -13,12 +13,6 @@
   <property name="windowTitle">
    <string>LOGIN</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QDialog{
-background:rgb(85, 85, 85);
-}
-</string>
-  </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="8,1">
    <property name="spacing">
     <number>3</number>
@@ -42,34 +36,8 @@ background:rgb(85, 85, 85);
        <kerning>true</kerning>
       </font>
      </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color:rgb(245, 245, 245);
-font:77 10pt 'Arial Black';
-}
-QPushButton{
-border-radius: 12px;
-color:rgb(238, 238, 238);
-background-color:rgb(186, 186, 186);
-padding: 7px 7px;
-  text-align: center;
-  font-size: 16px;
-}
-QPushButton:hover{
-background-color: #04AA6D; /* Green */
-color: white;
-}
-QLineEdit{
-padding: 12px 20px;
-margin: 3px 0;
-border: 2px solid #fff;
-border-radius: 5px;
-font:77 16px 'Arial Black';
-color:rgb(238, 238, 238);
-}</string>
-     </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -99,7 +67,7 @@ color:rgb(238, 238, 238);
 }</string>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -157,7 +125,7 @@ color:rgb(238, 238, 238);
          <string notr="true"/>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -172,7 +140,7 @@ color:rgb(238, 238, 238);
          <item>
           <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>CORREO</string>
+            <string>Correo</string>
            </property>
           </widget>
          </item>
@@ -185,7 +153,7 @@ color:rgb(238, 238, 238);
       <item>
        <widget class="QFrame" name="frame_4">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -200,7 +168,7 @@ color:rgb(238, 238, 238);
          <item>
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>CONTRASEÑA</string>
+            <string>Contrasena</string>
            </property>
           </widget>
          </item>
@@ -213,7 +181,7 @@ color:rgb(238, 238, 238);
       <item>
        <widget class="QFrame" name="frameMsg">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -252,34 +220,8 @@ color:rgb(238, 238, 238);
    </item>
    <item>
     <widget class="QFrame" name="frame_2">
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color:rgb(245, 245, 245);
-font:77 10pt 'Arial Black';
-}
-QPushButton{
-border-radius: 12px;
-color:rgb(238, 238, 238);
-background-color:rgb(186, 186, 186);
-padding: 7px 7px;
-  text-align: center;
-  font-size: 16px;
-}
-QPushButton:hover{
-background-color: #04AA6D; /* Green */
-color: white;
-}
-QLineEdit{
-padding: 12px 20px;
-margin: 8px 0;
-border: 2px solid #fff;
-border-radius: 5px;
-font:77 12px 'Arial Black';
-color:rgb(238, 238, 238);
-}</string>
-     </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -299,7 +241,7 @@ background:rgb(175, 28, 35)
 }</string>
         </property>
         <property name="text">
-         <string>SALIR</string>
+         <string>Cancelar</string>
         </property>
        </widget>
       </item>
@@ -311,7 +253,7 @@ background:rgb(175, 28, 35)
 }</string>
         </property>
         <property name="text">
-         <string>ENTRAR</string>
+         <string>Ingresar</string>
         </property>
        </widget>
       </item>

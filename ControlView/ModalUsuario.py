@@ -48,21 +48,21 @@ class ModalUsuario(QDialog):
         self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Password)
         self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Password)
         self.ui.btnGuardar.setToolTip('Guardar Datos usuarios')
-        self.ui.btnGuardar.setIcon(self.svg_coloreado("floppy-disk.svg","#8AFF72",QSize(40,40)))
+        self.ui.btnGuardar.setIcon(self.svg_coloreado("floppy-disk.svg","#8AFF72",QSize(15,15)))
         self.ui.btnSalir.setToolTip('Salir del registro')
-        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-xmark.svg","#D37575",QSize(40,40)))
+        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-xmark.svg","#D37575",QSize(15,15)))
         self.ui.btnViewPass.setToolTip("Ver contraseña")
-        self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(40,40)))
+        self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(15,15)))
     def cerrarDialogo(self):
         self.reject()
     def mostrarPassword(self):
         tipo = self.ui.linePassword.echoMode()
         if tipo == QLineEdit.EchoMode.Password:
-            self.ui.btnViewPass.setIcon(self.svg_coloreado("eye-slash.svg","#000000",QSize(40,40)))
+            self.ui.btnViewPass.setIcon(self.svg_coloreado("eye-slash.svg","#000000",QSize(15,15)))
             self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Normal)
             self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Normal)
         else:
-            self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(40,40)))
+            self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(15,15)))
             self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Password)
             self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Password)
     def cargarDatos(self):
