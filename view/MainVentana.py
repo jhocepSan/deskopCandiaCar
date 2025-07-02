@@ -334,7 +334,7 @@ class Ui_MainWindow(object):
         self.btnServicios.setText(_translate("MainWindow", "SERVICIOS"))
         self.btnClientes.setText(_translate("MainWindow", "CLIENTES"))
         self.btnUsuarios.setText(_translate("MainWindow", "USUARIOS"))
-        self.btnConfig.setText(_translate("MainWindow", "CONFIG..."))
+        self.btnConfig.setText(_translate("MainWindow", "CONFIGURACIONES"))
         self.label_3.setText(_translate("MainWindow", "BUSCAR USUARIO"))
         self.btnNuevoUser.setText(_translate("MainWindow", "Nuevo"))
         self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
