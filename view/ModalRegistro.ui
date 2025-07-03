@@ -53,7 +53,7 @@
       <item row="0" column="0">
        <widget class="QTabWidget" name="tabWidget">
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab">
          <attribute name="title">
@@ -131,7 +131,7 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -168,7 +168,7 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -205,7 +205,7 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -242,7 +242,7 @@
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -311,13 +311,7 @@
 }</string>
                      </property>
                      <property name="text">
-                      <string>Buscar</string>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
+                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -330,13 +324,7 @@ color:black;
 }</string>
                      </property>
                      <property name="text">
-                      <string>Nuevo</string>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
+                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -385,7 +373,7 @@ color:black;
                         <string notr="true">color:black;</string>
                        </property>
                        <property name="text">
-                        <string>Foto</string>
+                        <string/>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -401,7 +389,7 @@ color:black;
                         <string notr="true">color:black;</string>
                        </property>
                        <property name="text">
-                        <string>Subir</string>
+                        <string/>
                        </property>
                        <property name="iconSize">
                         <size>
@@ -415,6 +403,10 @@ color:black;
                       <widget class="QPushButton" name="btn_subirFotoCliente">
                        <property name="text">
                         <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset theme="edit-clear">
+                         <normaloff>.</normaloff>.</iconset>
                        </property>
                       </widget>
                      </item>
@@ -634,7 +626,21 @@ color:black;
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="linePlaca"/>
+                       <layout class="QHBoxLayout" name="horizontalLayout_18">
+                        <item>
+                         <widget class="QLineEdit" name="linePlaca"/>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_buscarplaca">
+                          <property name="toolTip">
+                           <string>buscar placa</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
                     </widget>
@@ -833,13 +839,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Foto</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -851,13 +851,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Subir</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -917,13 +911,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Foto</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -935,13 +923,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Subir</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>

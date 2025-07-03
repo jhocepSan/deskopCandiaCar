@@ -51,7 +51,7 @@ class Ui_Dialog(object):
         font = QtGui.QFont()
         font.setKerning(True)
         self.frame.setFont(font)
-        self.frame.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setLineWidth(0)
         self.frame.setObjectName("frame")
@@ -131,7 +131,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "LOGIN"))
+        Dialog.setWindowTitle(_translate("Dialog", "Iniciar sesion"))
         self.label_2.setText(_translate("Dialog", "Sistema Candia Car"))
         self.label_3.setText(_translate("Dialog", "Correo"))
         self.label_4.setText(_translate("Dialog", "Contraseña"))

@@ -1,8 +1,13 @@
 import re,os,json,jwt, shutil
+from PyQt6.QtCore import QSize
+from PyQt6.QtSvg import QSvgRenderer
+from PyQt6.QtGui import QFont,QIcon,QPixmap,QPainter,QColor
+from Clases.enums import Color, IconSize
 
 URL_SERVER = 'http://192.168.1.9:4001'
 RUTA_SESSION = './public/carCandi.json'
 SVG_BASE = "./public/fontawesome-free-6.7.2-desktop/svgs/solid/"
+PATH_PH_IMAGE = "./public/placeholder.png"
 LIST_TIPO=[
     {'id':0,'nombre':'NINGUNO','tipo':''},
     {'id':1,'nombre':'ADMINISTRADOR','tipo':'A'},
@@ -48,3 +53,16 @@ def upload_photo_to_public(file_path: str):
         print(f"Error: Specified file or directory not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+def get_icon(filename: str, color = Color.BLACK, size = IconSize.SMALL):
+    full_path = os.path.join(SVG_BASE, filename + ".svg")
+    renderer = QSvgRenderer(full_path)
+    pixmap = QPixmap(QSize(size.value, size.value))
+    pixmap.fill(QColor("transparent"))
+    painter = QPainter(pixmap)
+    renderer.render(painter)
+    painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceIn)
+    painter.fillRect(pixmap.rect(), QColor(color.value))
+    painter.end()
+    return QIcon(pixmap)
+

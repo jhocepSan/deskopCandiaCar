@@ -3,10 +3,11 @@ from PyQt6.QtSvg import QSvgRenderer
 from PyQt6.QtGui import QFont,QIcon,QPixmap,QPainter,QColor
 from PyQt6.QtCore import QSize
 from view.ModalUsuario import Ui_Dialog
-from Clases.ComunicacionApi import ComunicacionApi
 import Clases.Utils as utils
 import Clases.UtilsMessage as messages
+from Clases.enums import Color
 import os,re
+import Clases.services.usuario as apiservice
 
 class ModalUsuario(QDialog):
     def __init__(self,info=None):
@@ -25,7 +26,6 @@ class ModalUsuario(QDialog):
                 border-radius: 4px;
             }
         """)
-        self.api = ComunicacionApi()
         self.configuracion_inical()
         self.ui.combTipoUser.addItems([p['nombre'] for p in utils.LIST_TIPO])
         self.ui.combUsoApp.addItems([p['nombre'] for p in utils.LIST_USO_APP])
@@ -33,36 +33,25 @@ class ModalUsuario(QDialog):
         self.ui.btnViewPass.clicked.connect(self.mostrarPassword)
         self.ui.btnGuardar.clicked.connect(self.guardarUsuario)
         self.cargarDatos()
-    def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
-        full_path = os.path.join(self.SVG_BASE, filename)
-        renderer = QSvgRenderer(full_path)
-        pixmap = QPixmap(size)
-        pixmap.fill(QColor("transparent"))
-        painter = QPainter(pixmap)
-        renderer.render(painter)
-        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceIn)
-        painter.fillRect(pixmap.rect(), QColor(color_hex))
-        painter.end()
-        return QIcon(pixmap)
     def configuracion_inical(self):
         self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Password)
         self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Password)
         self.ui.btnGuardar.setToolTip('Guardar Datos usuarios')
-        self.ui.btnGuardar.setIcon(self.svg_coloreado("floppy-disk.svg","#8AFF72",QSize(15,15)))
+        self.ui.btnGuardar.setIcon(utils.get_icon("floppy-disk", Color.OK))
         self.ui.btnSalir.setToolTip('Salir del registro')
-        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-xmark.svg","#D37575",QSize(15,15)))
+        self.ui.btnSalir.setIcon(utils.get_icon("circle-xmark", Color.CANCEL))
         self.ui.btnViewPass.setToolTip("Ver contraseña")
-        self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(15,15)))
+        self.ui.btnViewPass.setIcon(utils.get_icon("eye", Color.BLACK))
     def cerrarDialogo(self):
         self.reject()
     def mostrarPassword(self):
         tipo = self.ui.linePassword.echoMode()
         if tipo == QLineEdit.EchoMode.Password:
-            self.ui.btnViewPass.setIcon(self.svg_coloreado("eye-slash.svg","#000000",QSize(15,15)))
+            self.ui.btnViewPass.setIcon(utils.get_icon("eye-slash", Color.BLACK))
             self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Normal)
             self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Normal)
         else:
-            self.ui.btnViewPass.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(15,15)))
+            self.ui.btnViewPass.setIcon(utils.get_icon("eye", Color.BLACK))
             self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Password)
             self.ui.linePasswordR.setEchoMode(QLineEdit.EchoMode.Password)
     def cargarDatos(self):
@@ -93,16 +82,14 @@ class ModalUsuario(QDialog):
                             'app':next((item['tipo'] for item in utils.LIST_USO_APP if item['id'] == tipoApp), 'X')
                         }
                         print(datos)
-                        result = self.api.NuevoUsuario(datos)
+                        result = apiservice.NuevoUsuario(datos)
                         print(result)
-                        if 'ok' in result:
+                        if result.data:
                             print("registro correto")
                             messages.mostrar_toast_correcto(self,"Registro correcto")
                             self.accept()
-                        elif 'error' in result:
-                            messages.mostrar_toast_error(self,result['error'])
                         else:
-                            messages.mostrar_toast_error(self,result['detail'][0]['msg'])
+                            messages.mostrar_toast_error(self,result.error)
                     else:
                         datos = {
                             'id':self.info_user['id'],
@@ -112,15 +99,13 @@ class ModalUsuario(QDialog):
                             'app':next((item['tipo'] for item in utils.LIST_USO_APP if item['id'] == tipoApp), 'X')
                         }
                         print(datos)
-                        result = self.api.ActualizarUsuario(datos)
+                        result = apiservice.ActualizarUsuario(datos)
                         print(result)
-                        if 'ok' in result:
+                        if result.data:
                             messages.mostrar_toast_correcto(self,"Datos del Usuario Actualizado")
                             self.accept()
-                        elif 'error' in result:
-                            messages.mostrar_toast_error(self,result['error'])
                         else:
-                            messages.mostrar_toast_error(self,result['detail'][0]['msg'])
+                            messages.mostrar_toast_error(self,result.error)
                 else:
                     if tipoApp==0:
                         messages.mostrar_toast_error(self,"No eligio tipo de aplicacion")

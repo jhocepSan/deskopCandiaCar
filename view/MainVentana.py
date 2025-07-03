@@ -42,6 +42,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setSpacing(1)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.btnMenu = QtWidgets.QPushButton(parent=self.Logo)
+        self.btnMenu.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/CarMec.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btnMenu.setIcon(icon1)
@@ -101,6 +102,53 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(1, 1, 1, 1)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.frame = QtWidgets.QFrame(parent=self.Contenido)
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame.setObjectName("frame")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_2 = QtWidgets.QLabel(parent=self.frame)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_3.addWidget(self.label_2)
+        self.textSeach = QtWidgets.QLineEdit(parent=self.frame)
+        self.textSeach.setObjectName("textSeach")
+        self.horizontalLayout_3.addWidget(self.textSeach)
+        self.bSearchClient = QtWidgets.QPushButton(parent=self.frame)
+        self.bSearchClient.setText("")
+        icon6 = QtGui.QIcon()
+        icon6.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/search_magnifyng_glass_find_locate_icon_123485.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.bSearchClient.setIcon(icon6)
+        self.bSearchClient.setObjectName("bSearchClient")
+        self.horizontalLayout_3.addWidget(self.bSearchClient)
+        self.btn_add = QtWidgets.QPushButton(parent=self.frame)
+        icon7 = QtGui.QIcon()
+        icon7.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/Add_User-80_icon-icons.com_57380.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btn_add.setIcon(icon7)
+        self.btn_add.setObjectName("btn_add")
+        self.horizontalLayout_3.addWidget(self.btn_add)
+        self.btn_refrescar = QtWidgets.QPushButton(parent=self.frame)
+        self.btn_refrescar.setText("")
+        icon8 = QtGui.QIcon()
+        icon8.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/reload_78477.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.btn_refrescar.setIcon(icon8)
+        self.btn_refrescar.setObjectName("btn_refrescar")
+        self.horizontalLayout_3.addWidget(self.btn_refrescar)
+        self.expoCliPdf = QtWidgets.QPushButton(parent=self.frame)
+        self.expoCliPdf.setText("")
+        icon9 = QtGui.QIcon()
+        icon9.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/pdf_filetype_icon_177525.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.expoCliPdf.setIcon(icon9)
+        self.expoCliPdf.setObjectName("expoCliPdf")
+        self.horizontalLayout_3.addWidget(self.expoCliPdf)
+        self.exExcCli = QtWidgets.QPushButton(parent=self.frame)
+        self.exExcCli.setText("")
+        icon10 = QtGui.QIcon()
+        icon10.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/file_type_excel_icon_130611.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        self.exExcCli.setIcon(icon10)
+        self.exExcCli.setObjectName("exExcCli")
+        self.horizontalLayout_3.addWidget(self.exExcCli)
+        self.verticalLayout_2.addWidget(self.frame)
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.Contenido)
         self.stackedWidget.setObjectName("stackedWidget")
         self.page_servicios = QtWidgets.QWidget()
@@ -112,35 +160,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_6.setSpacing(2)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.frame_5 = QtWidgets.QFrame(parent=self.page_usuarios)
-        self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
-        self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame_5.setObjectName("frame_5")
-        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_5)
-        self.horizontalLayout_5.setContentsMargins(2, 1, 2, 1)
-        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.label_3 = QtWidgets.QLabel(parent=self.frame_5)
-        self.label_3.setObjectName("label_3")
-        self.horizontalLayout_5.addWidget(self.label_3)
-        self.lineSearchUser = QtWidgets.QLineEdit(parent=self.frame_5)
-        self.lineSearchUser.setObjectName("lineSearchUser")
-        self.horizontalLayout_5.addWidget(self.lineSearchUser)
-        self.btnBuscarUser = QtWidgets.QPushButton(parent=self.frame_5)
-        self.btnBuscarUser.setText("")
-        self.btnBuscarUser.setIconSize(QtCore.QSize(30, 30))
-        self.btnBuscarUser.setObjectName("btnBuscarUser")
-        self.horizontalLayout_5.addWidget(self.btnBuscarUser)
-        self.btnNuevoUser = QtWidgets.QPushButton(parent=self.frame_5)
-        self.btnNuevoUser.setStyleSheet("QPushButton{\n"
-"    background:rgb(29, 159, 48);\n"
-"}")
-        self.btnNuevoUser.setIconSize(QtCore.QSize(30, 30))
-        self.btnNuevoUser.setObjectName("btnNuevoUser")
-        self.horizontalLayout_5.addWidget(self.btnNuevoUser)
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.frame_5)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_5.addWidget(self.pushButton_2)
-        self.verticalLayout_6.addWidget(self.frame_5)
         self.frame_6 = QtWidgets.QFrame(parent=self.page_usuarios)
         self.frame_6.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -167,8 +186,7 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab_2, "")
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
         self.verticalLayout_6.addWidget(self.frame_6)
-        self.verticalLayout_6.setStretch(0, 1)
-        self.verticalLayout_6.setStretch(1, 8)
+        self.verticalLayout_6.setStretch(0, 8)
         self.stackedWidget.addWidget(self.page_usuarios)
         self.page_config = QtWidgets.QWidget()
         self.page_config.setObjectName("page_config")
@@ -179,67 +197,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.frame = QtWidgets.QFrame(parent=self.page_clientes)
-        self.frame.setStyleSheet("QLabel{\n"
-"color:rgb(245, 245, 245);\n"
-"font:77 10pt \'Arial Black\';\n"
-"}\n"
-"QPushButton{\n"
-"border-radius: 12px;\n"
-"color:rgb(238, 238, 238);\n"
-"background-color:rgb(186, 186, 186);\n"
-"padding: 7px 7px;\n"
-"  text-align: center;\n"
-"  font-size: 16px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #04AA6D; /* Green */\n"
-"color: white;\n"
-"}\n"
-"QLineEdit{\n"
-"padding: 12px 20px;\n"
-"margin: 8px 0;\n"
-"border: 2px solid #fff;\n"
-"border-radius: 5px;\n"
-"font:77 12px \'Arial Black\';\n"
-"color:rgb(238, 238, 238);\n"
-"}")
-        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame.setObjectName("frame")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame)
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.label_2 = QtWidgets.QLabel(parent=self.frame)
-        self.label_2.setObjectName("label_2")
-        self.horizontalLayout_3.addWidget(self.label_2)
-        self.textSeach = QtWidgets.QLineEdit(parent=self.frame)
-        self.textSeach.setObjectName("textSeach")
-        self.horizontalLayout_3.addWidget(self.textSeach)
-        self.bSearchClient = QtWidgets.QPushButton(parent=self.frame)
-        self.bSearchClient.setText("")
-        icon6 = QtGui.QIcon()
-        icon6.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/search_magnifyng_glass_find_locate_icon_123485.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.bSearchClient.setIcon(icon6)
-        self.bSearchClient.setIconSize(QtCore.QSize(30, 30))
-        self.bSearchClient.setObjectName("bSearchClient")
-        self.horizontalLayout_3.addWidget(self.bSearchClient)
-        self.expoCliPdf = QtWidgets.QPushButton(parent=self.frame)
-        self.expoCliPdf.setText("")
-        icon7 = QtGui.QIcon()
-        icon7.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/pdf_filetype_icon_177525.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.expoCliPdf.setIcon(icon7)
-        self.expoCliPdf.setIconSize(QtCore.QSize(30, 30))
-        self.expoCliPdf.setObjectName("expoCliPdf")
-        self.horizontalLayout_3.addWidget(self.expoCliPdf)
-        self.exExcCli = QtWidgets.QPushButton(parent=self.frame)
-        self.exExcCli.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/file_type_excel_icon_130611.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.exExcCli.setIcon(icon8)
-        self.exExcCli.setIconSize(QtCore.QSize(30, 30))
-        self.exExcCli.setObjectName("exExcCli")
-        self.horizontalLayout_3.addWidget(self.exExcCli)
-        self.verticalLayout_4.addWidget(self.frame)
         self.frame_3 = QtWidgets.QFrame(parent=self.page_clientes)
         self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -248,65 +205,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_5.setSpacing(0)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.frame_4 = QtWidgets.QFrame(parent=self.frame_3)
-        self.frame_4.setStyleSheet("QLabel{\n"
-"color:rgb(245, 245, 245);\n"
-"font:77 10pt \'Arial Black\';\n"
-"}\n"
-"QPushButton{\n"
-"border-radius: 12px;\n"
-"color:rgb(255, 255, 255);\n"
-"font-weight: bold;\n"
-"background-color:rgb(186, 186, 186);\n"
-"padding: 7px 7px;\n"
-"  text-align: center;\n"
-"  text-decoration: none;\n"
-"  font-size: 16px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"font-weight: bold;\n"
-"background-color: #04AA6D; /* Green */\n"
-"color: white;\n"
-"}\n"
-"QLineEdit{\n"
-"padding: 12px 20px;\n"
-"margin: 8px 0;\n"
-"box-sizing: border-box;\n"
-"border: 2px solid #fff;\n"
-"border-radius: 5px;\n"
-"font:77 12px \'Arial Black\';\n"
-"color:rgb(238, 238, 238);\n"
-"}")
-        self.frame_4.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame_4.setObjectName("frame_4")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_4)
-        self.horizontalLayout_4.setContentsMargins(1, 1, 1, 1)
-        self.horizontalLayout_4.setSpacing(6)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.btnAddClient = QtWidgets.QPushButton(parent=self.frame_4)
-        icon9 = QtGui.QIcon()
-        icon9.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/Add_User-80_icon-icons.com_57380.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnAddClient.setIcon(icon9)
-        self.btnAddClient.setIconSize(QtCore.QSize(20, 20))
-        self.btnAddClient.setObjectName("btnAddClient")
-        self.horizontalLayout_4.addWidget(self.btnAddClient)
-        self.btnLoadClient = QtWidgets.QPushButton(parent=self.frame_4)
-        icon10 = QtGui.QIcon()
-        icon10.addPixmap(QtGui.QPixmap("view/../../../../../../../Downloads/reload_78477.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.btnLoadClient.setIcon(icon10)
-        self.btnLoadClient.setIconSize(QtCore.QSize(20, 20))
-        self.btnLoadClient.setObjectName("btnLoadClient")
-        self.horizontalLayout_4.addWidget(self.btnLoadClient)
-        self.verticalLayout_5.addWidget(self.frame_4)
         self.listaClientes = QtWidgets.QTableWidget(parent=self.frame_3)
         self.listaClientes.setObjectName("listaClientes")
         self.listaClientes.setColumnCount(0)
         self.listaClientes.setRowCount(0)
         self.verticalLayout_5.addWidget(self.listaClientes)
         self.verticalLayout_4.addWidget(self.frame_3)
-        self.verticalLayout_4.setStretch(0, 1)
-        self.verticalLayout_4.setStretch(1, 8)
+        self.verticalLayout_4.setStretch(0, 8)
         self.stackedWidget.addWidget(self.page_clientes)
         self.verticalLayout_2.addWidget(self.stackedWidget)
         self.horizontalLayout_2.addWidget(self.Contenido)
@@ -329,17 +234,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Candia Card"))
-        self.btnMenu.setText(_translate("MainWindow", "Menu"))
         self.label.setText(_translate("MainWindow", "CANDIA CAR"))
         self.btnServicios.setText(_translate("MainWindow", "SERVICIOS"))
         self.btnClientes.setText(_translate("MainWindow", "CLIENTES"))
         self.btnUsuarios.setText(_translate("MainWindow", "USUARIOS"))
         self.btnConfig.setText(_translate("MainWindow", "CONFIGURACIONES"))
-        self.label_3.setText(_translate("MainWindow", "BUSCAR USUARIO"))
-        self.btnNuevoUser.setText(_translate("MainWindow", "Nuevo"))
-        self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
+        self.label_2.setText(_translate("MainWindow", "BUSCAR"))
+        self.btn_add.setText(_translate("MainWindow", "Nuevo"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Usuarios"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Permiso"))
-        self.label_2.setText(_translate("MainWindow", "BUSCAR CLIENTE"))
-        self.btnAddClient.setText(_translate("MainWindow", "Nuevo Cliente"))
-        self.btnLoadClient.setText(_translate("MainWindow", "Refrescar"))

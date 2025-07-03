@@ -3,7 +3,8 @@ from PyQt6.QtSvg import QSvgRenderer
 from PyQt6.QtGui import QFont,QIcon,QPixmap,QPainter,QColor
 from PyQt6.QtCore import QSize
 from view.ModalLogin import Ui_Dialog
-from Clases.ComunicacionApi import ComunicacionApi
+from Clases.services.auth import IniciarSesion
+from Clases.enums import Color, IconSize
 import Clases.Utils as utils
 import Clases.UtilsMessage as messages
 import os,re
@@ -23,28 +24,16 @@ class ModalLogin(QDialog):
                 border-radius: 4px;
             }
         """)
-        self.ui.lineEmail.setText("jjchsan")
-        self.ui.linePassword.setText("Sajhy##")
-        self.api = ComunicacionApi()
+        #self.ui.lineEmail.setText("jjchsan")
+        #self.ui.linePassword.setText("Sajhy##")
         self.configuracion_inicial()
         self.ui.btnSalir.clicked.connect(self.cerrarDialogo)
         self.ui.btnEntrar.clicked.connect(self.checkLogin)
-    def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
-        full_path = os.path.join(self.SVG_BASE, filename)
-        renderer = QSvgRenderer(full_path)
-        pixmap = QPixmap(size)
-        pixmap.fill(QColor("transparent"))
-        painter = QPainter(pixmap)
-        renderer.render(painter)
-        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceIn)
-        painter.fillRect(pixmap.rect(), QColor(color_hex))
-        painter.end()
-        return QIcon(pixmap)
     def configuracion_inicial(self):
         self.ui.btnEntrar.setToolTip('Iniciar Ingreso al Sistema')
-        self.ui.btnEntrar.setIcon(self.svg_coloreado("right-to-bracket.svg","#8AFF72",QSize(40,40)))
+        self.ui.btnEntrar.setIcon(utils.get_icon("right-to-bracket", Color.OK))
         self.ui.btnSalir.setToolTip('Salir del registro')
-        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-xmark.svg","#D37575",QSize(40,40)))
+        self.ui.btnSalir.setIcon(utils.get_icon("circle-xmark", Color.CANCEL))
         self.ui.linePassword.setEchoMode(QLineEdit.EchoMode.Password)
     def cerrarDialogo(self):
         self.reject()
@@ -52,12 +41,12 @@ class ModalLogin(QDialog):
         correo = self.ui.lineEmail.text()
         password = self.ui.linePassword.text()
         if correo!='' and password!='':
-            result = self.api.IniciarSesion({'usuario':correo,'contrasena':password})
-            if not 'detail' in result:
+            result = IniciarSesion({'usuario':correo,'contrasena':password})
+            if result.data:
                 self.ui.frameMsg.setStyleSheet("background-color: #84fc93; border-radius: 10px;color:#000000")  
                 self.ui.textMsg.setText("Inicio de Sesion Correcto...") 
-                utils.save_session_user({'usuario':result['ok']})
-                info = utils.get_data_token({'usuario':result['ok']})
+                utils.save_session_user({'usuario':result.data['ok']})
+                info = utils.get_data_token({'usuario':result.data['ok']})
                 print(info)
                 if info['app']=='D' or info['app']=='T':
                     self.accept() 

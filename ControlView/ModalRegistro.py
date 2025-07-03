@@ -1,13 +1,16 @@
 from PyQt6.QtWidgets import QToolTip,QDialog, QLineEdit, QFileDialog, QSizePolicy
-from Clases.ComunicacionApi import ComunicacionApi
 from PyQt6.QtSvg import QSvgRenderer
 from PyQt6.QtGui import QFont,QIcon,QPixmap,QPainter,QColor
-from PyQt6.QtCore import QSize
+from PyQt6.QtCore import QSize, Qt
 from view.ModalRegistro import Ui_Dialog
 import Clases.Utils as utils
 import Clases.UtilsMessage as messages
 import os
 from Clases.payloads.vehiculo import VehiculoModel
+from Clases.enums import Color, IconSize
+from Clases.services.cliente import NuevaPersona, searchCodigo
+from Clases.services.vehiculo import buscar_vehiculo, registrar_vehiculo, getTipoVehiculos
+
 class ModalRegistro(QDialog):
     def __init__(self):
         super().__init__()
@@ -23,7 +26,6 @@ class ModalRegistro(QDialog):
                 border-radius: 4px;
             }
         """)
-        self.api = ComunicacionApi()
         self.persona = None
         self.vehiculo = VehiculoModel()
         self.tipoVehiculos: list = None
@@ -34,6 +36,7 @@ class ModalRegistro(QDialog):
         self.ui.tabWidget.setTabEnabled(1,False)
         self.ui.tabWidget.setTabEnabled(2,False)
         self.iniciar_extras()
+        self.load_default_previews()
         QToolTip.setFont(QFont('Arial', 10))
         self.ui.btnSalir.clicked.connect(self.cerrarDialogo)
         self.ui.btnSiguiente.clicked.connect(self.validateCliente)
@@ -43,6 +46,7 @@ class ModalRegistro(QDialog):
         self.ui.btnSubFvehiculo.clicked.connect(self.handle_subirfotovehiculo)
         self.ui.btn_rm_fotoplaca.clicked.connect(self.handle_remove_fotoplaca)
         self.ui.btn_rm_fotovehiculo.clicked.connect(self.handle_remove_fotovehiculo)
+        self.ui.btn_buscarplaca.clicked.connect(self.buscar_placavehiculo)
 
         self.handle_editFinish_vehiculo([self.ui.lineModelo,
                                          self.ui.linePlaca,
@@ -51,44 +55,51 @@ class ModalRegistro(QDialog):
                                          self.ui.lineKilome])
         self.fill_tipoVehiculos()
 
-    def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
-        full_path = os.path.join(self.SVG_BASE, filename)
-        renderer = QSvgRenderer(full_path)
-        pixmap = QPixmap(size)
-        pixmap.fill(QColor("transparent"))
-        painter = QPainter(pixmap)
-        renderer.render(painter)
-        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceIn)
-        painter.fillRect(pixmap.rect(), QColor(color_hex))
-        painter.end()
-        return QIcon(pixmap)
-
     def iniciar_extras(self):
-        self.ui.tabWidget.setTabIcon(0,self.svg_coloreado("user.svg","#ffffff"))
-        self.ui.tabWidget.setTabIcon(1,self.svg_coloreado("car.svg","#ffffff"))
+        self.ui.tabWidget.setTabIcon(0, utils.get_icon("user"))
+        self.ui.tabWidget.setTabIcon(1, utils.get_icon("car",))
         self.ui.btnBuscarCodigo.setToolTip("Buscar Codigo")
-        self.ui.btnBuscarCodigo.setIcon(self.svg_coloreado("magnifying-glass.svg","#000000",QSize(15,15)))
+        self.ui.btnBuscarCodigo.setIcon(utils.get_icon("magnifying-glass",))
+        self.ui.btn_buscarplaca.setIcon(utils.get_icon("magnifying-glass",))
         self.ui.btnFotoCliente.setToolTip("Tomar Foto Cliente")
-        self.ui.btnFotoCliente.setIcon(self.svg_coloreado("camera.svg","#271068",QSize(15,15)))
+        self.ui.btnFotoCliente.setIcon(utils.get_icon("camera",Color.PURPLE))
         self.ui.btnFotoPlaca.setToolTip("Tomar Foto Placa")
-        self.ui.btnFotoPlaca.setIcon(self.svg_coloreado("camera.svg","#271068",QSize(15,15)))
+        self.ui.btnFotoPlaca.setIcon(utils.get_icon("camera",Color.PURPLE))
         self.ui.btnFotoVehi.setToolTip("Tomar Foto Vehiculo")
-        self.ui.btnFotoVehi.setIcon(self.svg_coloreado("camera.svg","#271068",QSize(15,15)))
+        self.ui.btnFotoVehi.setIcon(utils.get_icon("camera", Color.PURPLE))
         self.ui.btnSubirFcliente.setToolTip("Subir Foto Cliente")
-        self.ui.btnSubirFcliente.setIcon(self.svg_coloreado("folder-open.svg","#0E394B",QSize(15,15)))
+        self.ui.btnSubirFcliente.setIcon(utils.get_icon("folder-open", Color.BLUE))
         self.ui.btnSubFplaca.setToolTip("Subir Foto Placa")
-        self.ui.btnSubFplaca.setIcon(self.svg_coloreado("folder-open.svg","#0E394B",QSize(15,15)))
+        self.ui.btnSubFplaca.setIcon(utils.get_icon("folder-open", Color.BLUE))
         self.ui.btnSubFvehiculo.setToolTip("Subir Foto Vehiculo")
-        self.ui.btnSubFvehiculo.setIcon(self.svg_coloreado("folder-open.svg","#0E394B",QSize(15,15)))
-        self.ui.btn_rm_fotoplaca.setIcon(self.svg_coloreado("trash-can.svg","#0E394B",QSize(15,15)))
-        self.ui.btn_rm_fotovehiculo.setIcon(self.svg_coloreado("trash-can.svg","#0E394B",QSize(15,15)))
+        self.ui.btnSubFvehiculo.setIcon(utils.get_icon("folder-open", Color.BLUE))
+        self.ui.btn_rm_fotoplaca.setIcon(utils.get_icon("trash-can", Color.BLUE))
+        self.ui.btn_rm_fotovehiculo.setIcon(utils.get_icon("trash-can", Color.BLUE))
         self.ui.btnSalir.setToolTip("Salir Registro")
-        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-xmark.svg","#D37575",QSize(15,15)))
+        self.ui.btnSalir.setIcon(utils.get_icon("circle-xmark", Color.CANCEL))
         self.ui.btnSiguiente.setToolTip("Ir al Siguiente")
-        self.ui.btnSiguiente.setIcon(self.svg_coloreado("circle-arrow-right.svg","#80D375",QSize(15,15)))
+        self.ui.btnSiguiente.setIcon(utils.get_icon("circle-arrow-right", Color.OK))
         self.ui.btnGenCodigo.setToolTip("Generar Codigo")
-        self.ui.btnGenCodigo.setIcon(self.svg_coloreado("square-binary.svg","#000000",QSize(15,15)))
+        self.ui.btnGenCodigo.setIcon(utils.get_icon("square-binary"))
 
+
+    def load_default_previews(self):
+        pixmap = QPixmap(utils.PATH_PH_IMAGE)
+        self.ui.lb_fotoplacaPreview.setPixmap(pixmap)
+        self.ui.lb_fotoplacaPreview.setScaledContents(True)
+        self.ui.lb_fotoplacaPreview.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.ui.lb_fotoplacaPreview.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Ignored)
+
+        self.ui.lb_fotoPreview.setPixmap(pixmap)
+        self.ui.lb_fotoPreview.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.ui.lb_fotoPreview.setScaledContents(True)
+        self.ui.lb_fotoPreview.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Ignored)
+
+        self.ui.lb_fotocliente_preview.setPixmap(pixmap)
+        self.ui.lb_fotocliente_preview.setScaledContents(True)
+        self.ui.lb_fotocliente_preview.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.ui.lb_fotocliente_preview.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Ignored)
+        
     def cerrarDialogo(self):
         self.reject()
 
@@ -136,7 +147,7 @@ class ModalRegistro(QDialog):
             field.editingFinished.connect(self.clearMsgErr)
 
     def fill_tipoVehiculos(self):
-        response = self.api.getTipoVehiculos()
+        response = getTipoVehiculos()
         if response.error:
             messages.mostrar_toast_error(self, response.error)
             return
@@ -146,13 +157,13 @@ class ModalRegistro(QDialog):
                 self.ui.comboTipoVehiculo.addItem(tipo['nombre'])
 
     def clearMsgErr(self):
-        self.ui.lb_msg_err.clear()
+        self.ui.lb_valid_message.clear()
 
     def irARegistroVehiculo(self):
         self.ui.btnSiguiente.setToolTip("Guardar Vehiculo")
-        self.ui.btnSiguiente.setIcon(self.svg_coloreado("circle-arrow-right.svg","#80D375",QSize(40,40)))
+        self.ui.btnSiguiente.setIcon(utils.get_icon("circle-arrow-right", Color.OK))
         self.ui.btnSalir.setToolTip("Ir Atras")
-        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-arrow-left.svg","#D37575",QSize(15,15)))
+        self.ui.btnSalir.setIcon(utils.get_icon("circle-arrow-left", Color.CANCEL))
         self.ui.btnSiguiente.clicked.connect(self.validateVehiculo)
         self.ui.btnSalir.clicked.connect(self.irAcliente)
         self.ui.tabWidget.setTabEnabled(1,True)
@@ -164,10 +175,10 @@ class ModalRegistro(QDialog):
 
     def irAcliente(self):
         self.ui.btnSiguiente.setToolTip("Ir al Siguiente")
-        self.ui.btnSiguiente.setIcon(self.svg_coloreado("circle-arrow-right.svg","#80D375",QSize(15,15)))
+        self.ui.btnSiguiente.setIcon(utils.get_icon("circle-arrow-right", Color.OK))
         self.ui.btnSiguiente.clicked.connect(self.validateCliente)
         self.ui.btnSalir.setToolTip("Salir Registro")
-        self.ui.btnSalir.setIcon(self.svg_coloreado("circle-xmark.svg","#D37575",QSize(15,15)))
+        self.ui.btnSalir.setIcon(utils.get_icon("circle-xmark", Color.CANCEL))
         self.ui.btnSalir.clicked.connect(self.cerrarDialogo)
         self.ui.tabWidget.setCurrentIndex(0)
 
@@ -187,7 +198,7 @@ class ModalRegistro(QDialog):
     def validateVehiculo(self):
         if self.ui.linePlaca.text()=='':
             self.ui.framValid.setStyleSheet("background-color: #fc8484; border-radius: 10px;")
-            self.ui.lb_msg_err.setText("La placa es requerido para registro")
+            self.ui.lb_valid_message.setText("La placa es requerido para registro")
             self.ui.linePlaca.setFocus()
             return
         self.guardarDatosVehiculo()
@@ -204,11 +215,11 @@ class ModalRegistro(QDialog):
         
         loading = messages.mostrar_WIP(self)
         
-        result = self.api.NuevaPersona({"nombres": nombres, 
-                                            "apellidos": apellidos,
-                                            "telefono": telefono,
-                                            "direccion": direccion,
-                                            "codigo": codigo})
+        result = NuevaPersona({"nombres": nombres, 
+                                "apellidos": apellidos,
+                                "telefono": telefono,
+                                "direccion": direccion,
+                                "codigo": codigo})
         if result.error:
             loading.close()
             messages.mostrar_toast_error(self, result.error)
@@ -219,6 +230,36 @@ class ModalRegistro(QDialog):
             loading.close()
             messages.mostrar_toast_correcto(self, "Registro correcto")
             self.irARegistroVehiculo()
+
+    def buscar_placavehiculo(self):
+        placa = self.ui.linePlaca.text()
+        if placa:
+            result = buscar_vehiculo(placa)
+            if result.error:
+                self.ui.lb_valid_message.setText(result.error)
+            else:    
+                self.vehiculo.id = result.data["id"]
+                self.vehiculo.placa = result.data["placa"]
+                self.vehiculo.modelo = result.data["modelo"]
+                self.vehiculo.color = result.data["color"]
+                self.vehiculo.foto = result.data["foto"]
+                self.vehiculo.fotoplaca = result.data["fotoplaca"]
+                self.vehiculo.km = result.data["km"]
+                self.vehiculo.motor = result.data["motor"]
+                self.vehiculo.tipoNombre = result.data["tipo"]["nombre"]
+                self.vehiculo.tipoId = result.data["tipo"]["id"]
+                
+                self.ui.lineModelo.setText(self.vehiculo.modelo)
+                self.ui.linePlaca.setText(self.vehiculo.placa)
+                self.ui.lineColor.setText(self.vehiculo.color)
+                self.ui.lineKilome.setText(self.vehiculo.km)
+                self.ui.lineMotor.setText(self.vehiculo.motor)
+                self.ui.comboTipoVehiculo.setCurrentText(self.vehiculo.tipoNombre)
+            
+                self.ui.lb_valid_message.clear
+                
+        else:
+            self.ui.lb_valid_message.setText("Ingresar numero de placa")
 
     def guardarDatosVehiculo(self):
         self.vehiculo.modelo = self.ui.lineModelo.text()
@@ -239,9 +280,9 @@ class ModalRegistro(QDialog):
             utils.upload_photo_to_public(self.ui.lb_fotoPath.text())
 
         if self.vehiculo.id:
-            result = self.api.update_vehiculo(self.vehiculo)
+            result = update_vehiculo(self.vehiculo)
         else:
-            result = self.api.registrar_vehiculo(self.vehiculo)
+            result = registrar_vehiculo(self.vehiculo)
         if result.error:
             loading.close()
             messages.mostrar_toast_error(self, result.error)
@@ -256,7 +297,7 @@ class ModalRegistro(QDialog):
         if codigo =='':
             messages.mostrar_toast_error(self,"No hay Cliente, con el codigo quer busca ...")
             return
-        result = self.api.searchCodigo({'codigo':codigo})
+        result = searchCodigo({'codigo':codigo})
         if result.error:
             messages.mostrar_toast_error(self,result.error)
         else:

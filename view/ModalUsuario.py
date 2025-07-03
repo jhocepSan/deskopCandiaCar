@@ -81,7 +81,6 @@ class Ui_Dialog(object):
         self.horizontalLayout_8.addWidget(self.linePassword)
         self.btnViewPass = QtWidgets.QPushButton(parent=self.frame_9)
         self.btnViewPass.setText("")
-        self.btnViewPass.setIconSize(QtCore.QSize(30, 30))
         self.btnViewPass.setObjectName("btnViewPass")
         self.horizontalLayout_8.addWidget(self.btnViewPass)
         self.horizontalLayout_4.addWidget(self.frame_9)
