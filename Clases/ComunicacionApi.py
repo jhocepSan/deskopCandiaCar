@@ -1,141 +1,31 @@
-import requests, json
+from requests import Request, Session
 from requests.exceptions import HTTPError
 import Clases.Utils as utils
-from Clases.payloads.vehiculo import VehiculoModel
 from Clases.ApiResponse import ApiResponse
-class ComunicacionApi(object):
-    def __init__(self):
-        self.url = utils.URL_SERVER
+from enum import Enum
 
-    def ObtenerUsuarios(self):
-        try:
-            result = requests.get(self.url+"/usuario",timeout=5)
-            if result.status_code == 200:
-                return result.json()
-            else:
-                return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
-            return {'error':'No hay conexion a la api'}
+class HttpMethod(Enum):
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
 
-    def NuevoUsuario(self,datos):
-        try:
-            result = requests.post(self.url+'/usuario',timeout=5,json=datos)
-            if result.status_code == 200:
-                return result.json()
-            else:
-                return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
-            return {'error':"No hay conexion a la api"}
-    def IniciarSesion(self,datos):
-        try:
-            result = requests.post(self.url+'/auth/signin',timeout=5,json=datos)
-            if result.status_code == 200:
-                return result.json()
-            else:
-                return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
-            return {'error':"No hay conexion a la api"}
-    def ActualizarUsuario(self,datos):
-        try:
-            result = requests.post(self.url+'/usuario/update',timeout=5,json=datos)
-            if result.status_code ==200:
-                return result.json()
-            else:
-                return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
-            return {'error':"No hay conexion a la api"}
-    def CambiarEstadoUser(self,datos):
-        try:
-            result = requests.post(self.url+'/usuario/changeEstado',timeout=5,json=datos)
-            if result.status_code ==200:
-                return result.json()
-            else:
-                return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
-            return {'error':"No hay conexion a la api"}
+def send_request(method = HttpMethod.GET, url = None, payload = None) -> ApiResponse:
+    
+    try:
+        session = Session()
+        req = Request(method.value, utils.URL_SERVER + url, json = payload)
+        prepped = session.prepare_request(req)
+        res = session.send(prepped, timeout=5)
+        res.raise_for_status()
+        return ApiResponse(data=res.json())
+    except HTTPError as err:
+        print(f"error: {err}")
+        error = err.response.json()
+        return ApiResponse(error=error.get("detail", "Error con el servidor"))
+    except Exception as err:
+        print(f"error: {err}")
+        return ApiResponse(error="Error conectando al servidor")
 
-    def NuevaPersona(self, datos):
-        print(datos)
-        try:
-            response = requests.post(self.url+'/persona', timeout=5, json=datos)
-            response.raise_for_status()
-            response = response.json()
-            return ApiResponse(data=response['ok'])
-        except HTTPError as err:
-            print(f"error en registro de persona: {err}")
-            #mejorar manejo error BAD request
-            if err.response.status_code == 400:
-                return ApiResponse(error=err.response.text)
-            else:
-                return ApiResponse(error="Error con el servidor")
-        except Exception as err:
-            print(f"error: {err}")
-            return ApiResponse(error="Error conectando al servidor")
-
-    def registrar_vehiculo(self, datos: VehiculoModel):
-        datos = datos.__dict__
-        print(datos)
-        try:
-            response = requests.post(self.url+'/vehiculo', timeout=5, json=datos)
-            response.raise_for_status()
-            return ApiResponse(data=response.json())
-        except HTTPError as err:
-            print(f"error en registro vehiculo: {err}")
-            if err.response.status_code == 400:
-                return ApiResponse(error=err.response.text)
-            else:
-                return ApiResponse(error="Error con el servidor")
-        except Exception as err:
-            print(f"error: {err}")
-            return ApiResponse(error="Error conectando al servidor")
-
-    def update_vehiculo(self, datos: VehiculoModel):
-        datos = datos.__dict__
-        print(datos)
-        try:
-            response = requests.put(self.url+'/vehiculo', timeout=5, json=datos)
-            response.raise_for_status()
-            return ApiResponse(data=response.json())
-        except HTTPError as err:
-            print(f"error en registro vehiculo: {err}")
-            if err.response.status_code == 400:
-                return ApiResponse(error=err.response.text)
-            else:
-                return ApiResponse(error="Error con el servidor")
-        except Exception as err:
-            print(f"error: {err}")
-            return ApiResponse(error="Error conectando al servidor")
-
-    def searchCodigo(self,codigo):
-        try:
-            response = requests.post(self.url+'/persona/buscarCodigo',timeout=5,json=codigo)
-            response.raise_for_status()
-            response = response.json()
-            return ApiResponse(data=response['ok'])
-        except HTTPError as err:
-            if err.response.status_code==400:
-                return ApiResponse(error=err.response.text)
-            else:
-                print(err)
-                return ApiResponse(error="Error con el servidor")
-        except Exception as err:
-            return ApiResponse(error="Error conectando al servidor")
-    def ObtenerClientes(self):
-        try:
-            result = requests.get(self.url+"/persona",timeout=5)
-            if result.status_code == 200:
-                return result.json()
-            else:
-                return result.json()
-        except (requests.RequestException,requests.ConnectTimeout):
-            return {'error':'No hay conexion a la api'}
         
-    def getTipoVehiculos(self):
-        try:
-            result = requests.get(self.url+"/vehiculo/tipos",timeout=5)
-            result.raise_for_status()
-            result = result.json()
-            return ApiResponse(data=result)
-        except (requests.RequestException, requests.ConnectTimeout):
-            return ApiResponse(error="Error recuperando tipo vehiculos")
     

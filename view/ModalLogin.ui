@@ -11,15 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>LOGIN</string>
+   <string>Iniciar sesion</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QDialog{
-background:rgb(85, 85, 85);
-}
-</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="8,1">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="2,3,1">
    <property name="spacing">
     <number>3</number>
    </property>
@@ -36,37 +30,72 @@ background:rgb(85, 85, 85);
     <number>0</number>
    </property>
    <item>
+    <widget class="QFrame" name="frame_3">
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	font-size:18px;
+	font-weight: bold;
+}</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="8,1">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelIcono">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Arial Black</family>
+          <pointsize>-1</pointsize>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
+        <property name="text">
+         <string>Sistema Candia Car</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="QFrame" name="frame">
      <property name="font">
       <font>
        <kerning>true</kerning>
       </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color:rgb(245, 245, 245);
-font:77 10pt 'Arial Black';
-}
-QPushButton{
-border-radius: 12px;
-color:rgb(238, 238, 238);
-background-color:rgb(186, 186, 186);
-padding: 7px 7px;
-  text-align: center;
-  font-size: 16px;
-}
-QPushButton:hover{
-background-color: #04AA6D; /* Green */
-color: white;
-}
-QLineEdit{
-padding: 12px 20px;
-margin: 3px 0;
-border: 2px solid #fff;
-border-radius: 5px;
-font:77 16px 'Arial Black';
-color:rgb(238, 238, 238);
-}</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -77,12 +106,12 @@ color:rgb(238, 238, 238);
      <property name="lineWidth">
       <number>0</number>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="4,1,1,1">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,0">
       <property name="leftMargin">
        <number>2</number>
       </property>
       <property name="topMargin">
-       <number>2</number>
+       <number>15</number>
       </property>
       <property name="rightMargin">
        <number>2</number>
@@ -91,73 +120,12 @@ color:rgb(238, 238, 238);
        <number>2</number>
       </property>
       <item>
-       <widget class="QFrame" name="frame_3">
-        <property name="styleSheet">
-         <string notr="true">QLabel{
-	font-size:18px;
-	font-weight: bold;
-}</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Raised</enum>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="8,1">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="labelIcono">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_2">
-           <property name="font">
-            <font>
-             <family>Arial Black</family>
-             <pointsize>-1</pointsize>
-             <italic>false</italic>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="lineWidth">
-            <number>0</number>
-           </property>
-           <property name="text">
-            <string>Sistema Candia Car</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
        <widget class="QFrame" name="frame_5">
         <property name="styleSheet">
          <string notr="true"/>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -172,7 +140,7 @@ color:rgb(238, 238, 238);
          <item>
           <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>CORREO</string>
+            <string>Correo</string>
            </property>
           </widget>
          </item>
@@ -185,7 +153,7 @@ color:rgb(238, 238, 238);
       <item>
        <widget class="QFrame" name="frame_4">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -200,7 +168,7 @@ color:rgb(238, 238, 238);
          <item>
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>CONTRASEÑA</string>
+            <string>Contraseña</string>
            </property>
           </widget>
          </item>
@@ -213,7 +181,7 @@ color:rgb(238, 238, 238);
       <item>
        <widget class="QFrame" name="frameMsg">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -252,34 +220,8 @@ color:rgb(238, 238, 238);
    </item>
    <item>
     <widget class="QFrame" name="frame_2">
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color:rgb(245, 245, 245);
-font:77 10pt 'Arial Black';
-}
-QPushButton{
-border-radius: 12px;
-color:rgb(238, 238, 238);
-background-color:rgb(186, 186, 186);
-padding: 7px 7px;
-  text-align: center;
-  font-size: 16px;
-}
-QPushButton:hover{
-background-color: #04AA6D; /* Green */
-color: white;
-}
-QLineEdit{
-padding: 12px 20px;
-margin: 8px 0;
-border: 2px solid #fff;
-border-radius: 5px;
-font:77 12px 'Arial Black';
-color:rgb(238, 238, 238);
-}</string>
-     </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -293,25 +235,15 @@ color:rgb(238, 238, 238);
       </property>
       <item>
        <widget class="QPushButton" name="btnSalir">
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-background:rgb(175, 28, 35)
-}</string>
-        </property>
         <property name="text">
-         <string>SALIR</string>
+         <string>Cancelar</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnEntrar">
-        <property name="styleSheet">
-         <string notr="true">QPushButton{
-	background:rgb(75, 181, 96);
-}</string>
-        </property>
         <property name="text">
-         <string>ENTRAR</string>
+         <string>Ingresar</string>
         </property>
        </widget>
       </item>

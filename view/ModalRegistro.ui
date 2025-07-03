@@ -6,15 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>828</width>
-    <height>577</height>
+    <width>696</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Datos Registro</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">background:rgb(85, 85, 85);</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="leftMargin">
@@ -32,7 +29,7 @@
    <item>
     <widget class="QFrame" name="frame">
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -55,53 +52,14 @@
       </property>
       <item row="0" column="0">
        <widget class="QTabWidget" name="tabWidget">
-        <property name="styleSheet">
-         <string notr="true">QTabBar::tab {
-        color: rgb(164, 255, 225);        
-        padding: 8px;
-		font-weight: bold;
-}
- QTabBar::tab:selected {
-        color: white;        
-		font-weight: bold;   
-        background:rgb(94, 94, 255);
-}</string>
-        </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab">
-         <property name="styleSheet">
-          <string notr="true">QLabel{
-color:rgb(245, 245, 245);
-font:77 10pt 'Arial Black';
-}
-QPushButton{
-border-radius: 12px;
-color:rgb(238, 238, 238);
-background-color:rgb(186, 186, 186);
-padding: 7px 7px;
-  text-align: center;
-  font-size: 16px;
-}
-QPushButton:hover{
-background-color: #04AA6D; /* Green */
-color: white;
-}
-QLineEdit{
-padding: 12px 20px;
-margin: 8px 0;
-border: 2px solid #fff;
-border-radius: 5px;
-font:77 16px 'Arial Black';
-color:rgb(238, 238, 238);
-}
-</string>
-         </property>
          <attribute name="title">
           <string>CLIENTE</string>
          </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout" stretch="8,1">
+         <layout class="QVBoxLayout" name="verticalLayout" stretch="8">
           <property name="spacing">
            <number>2</number>
           </property>
@@ -120,7 +78,7 @@ color:rgb(238, 238, 238);
           <item>
            <widget class="QFrame" name="frame_2">
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
@@ -149,7 +107,7 @@ color:rgb(238, 238, 238);
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,1,1,0">
+               <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,1,1">
                 <property name="spacing">
                  <number>2</number>
                 </property>
@@ -168,12 +126,12 @@ color:rgb(238, 238, 238);
                 <item>
                  <widget class="QFrame" name="frame_6">
                   <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
+                   <enum>QFrame::NoFrame</enum>
                   </property>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -192,7 +150,7 @@ color:rgb(238, 238, 238);
                    <item>
                     <widget class="QLabel" name="label">
                      <property name="text">
-                      <string>NOMBRES</string>
+                      <string>Nombres</string>
                      </property>
                     </widget>
                    </item>
@@ -205,12 +163,12 @@ color:rgb(238, 238, 238);
                 <item>
                  <widget class="QFrame" name="frame_8">
                   <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
+                   <enum>QFrame::NoFrame</enum>
                   </property>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -229,7 +187,7 @@ color:rgb(238, 238, 238);
                    <item>
                     <widget class="QLabel" name="label_2">
                      <property name="text">
-                      <string>APELLIDOS</string>
+                      <string>Apellidos</string>
                      </property>
                     </widget>
                    </item>
@@ -242,12 +200,12 @@ color:rgb(238, 238, 238);
                 <item>
                  <widget class="QFrame" name="frame_7">
                   <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
+                   <enum>QFrame::NoFrame</enum>
                   </property>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -266,7 +224,7 @@ color:rgb(238, 238, 238);
                    <item>
                     <widget class="QLabel" name="label_3">
                      <property name="text">
-                      <string>DIRECCION</string>
+                      <string>Direccion</string>
                      </property>
                     </widget>
                    </item>
@@ -279,12 +237,12 @@ color:rgb(238, 238, 238);
                 <item>
                  <widget class="QFrame" name="frame_9">
                   <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
+                   <enum>QFrame::NoFrame</enum>
                   </property>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="2,8">
+                  <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="3,8">
                    <property name="spacing">
                     <number>3</number>
                    </property>
@@ -303,28 +261,12 @@ color:rgb(238, 238, 238);
                    <item>
                     <widget class="QLabel" name="label_4">
                      <property name="text">
-                      <string>TELEFONO</string>
+                      <string>Telefono</string>
                      </property>
                     </widget>
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineTelefono"/>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QFrame" name="framValid">
-                  <layout class="QVBoxLayout" name="vL_lb_valid_message">
-                   <item>
-                    <widget class="QLabel" name="lb_valid_message">
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -335,7 +277,7 @@ color:rgb(238, 238, 238);
              <item>
               <widget class="QFrame" name="frame_5">
                <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+                <enum>QFrame::NoFrame</enum>
                </property>
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
@@ -353,7 +295,7 @@ color:rgb(238, 238, 238);
                    <item>
                     <widget class="QLabel" name="label_5">
                      <property name="text">
-                      <string>CODIGO</string>
+                      <string>Codigo</string>
                      </property>
                     </widget>
                    </item>
@@ -369,13 +311,7 @@ color:rgb(238, 238, 238);
 }</string>
                      </property>
                      <property name="text">
-                      <string>Buscar</string>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
+                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -388,13 +324,7 @@ color:black;
 }</string>
                      </property>
                      <property name="text">
-                      <string>Codigo</string>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
+                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -409,45 +339,78 @@ color:black;
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="0,0,0">
+                  <layout class="QVBoxLayout" name="verticalLayout_7" stretch="1,0">
                    <item>
-                    <widget class="QLabel" name="label_6">
-                     <property name="text">
-                      <string>FOTO CLIENTE</string>
-                     </property>
-                    </widget>
+                    <layout class="QVBoxLayout" name="verticalLayout_10" stretch="0,1">
+                     <item>
+                      <widget class="QLabel" name="lb_fotocliente_path">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lb_fotocliente_preview">
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="btnFotoCliente">
-                     <property name="styleSheet">
-                      <string notr="true">color:black;</string>
-                     </property>
-                     <property name="text">
-                      <string>Foto</string>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="btnSubirFcliente">
-                     <property name="styleSheet">
-                      <string notr="true">color:black;</string>
-                     </property>
-                     <property name="text">
-                      <string>Subir</string>
-                     </property>
-                     <property name="iconSize">
-                      <size>
-                       <width>25</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
+                    <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="1,0,0,0">
+                     <item>
+                      <widget class="QLabel" name="label_6">
+                       <property name="text">
+                        <string>Foto cliente</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btnFotoCliente">
+                       <property name="styleSheet">
+                        <string notr="true">color:black;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>25</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btnSubirFcliente">
+                       <property name="styleSheet">
+                        <string notr="true">color:black;</string>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="iconSize">
+                        <size>
+                         <width>25</width>
+                         <height>25</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="btn_subirFotoCliente">
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="icon">
+                        <iconset theme="edit-clear">
+                         <normaloff>.</normaloff>.</iconset>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </item>
                   </layout>
                  </widget>
@@ -458,84 +421,9 @@ color:black;
             </layout>
            </widget>
           </item>
-          <item>
-           <widget class="QFrame" name="frame_3">
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QPushButton" name="btnSalir">
-               <property name="styleSheet">
-                <string notr="true">QPushButton{
-	background:rgb(175, 28, 35);
-}</string>
-               </property>
-               <property name="text">
-                <string>Cancelar</string>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnSiguiente">
-               <property name="styleSheet">
-                <string notr="true">QPushButton{
-		background:rgb(75, 181, 96);
-}</string>
-               </property>
-               <property name="text">
-                <string>Siguiente</string>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>25</width>
-                 <height>25</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
          </layout>
         </widget>
         <widget class="QWidget" name="tab_2">
-         <property name="styleSheet">
-          <string notr="true">QLabel{
-color:rgb(245, 245, 245);
-font:77 10pt 'Arial Black';
-}
-QPushButton{
-border-radius: 12px;
-color:rgb(238, 238, 238);
-background-color:rgb(186, 186, 186);
-padding: 7px 7px;
-  text-align: center;
-  font-size: 16px;
-}
-QPushButton:hover{
-background-color: #04AA6D; /* Green */
-color: white;
-}
-QLineEdit{
-padding: 12px 20px;
-margin: 8px 0;
-border: 2px solid #fff;
-border-radius: 5px;
-font:77 16px 'Arial Black';
-color:rgb(238, 238, 238);
-}
-</string>
-         </property>
          <attribute name="title">
           <string>VEHICULO</string>
          </attribute>
@@ -558,12 +446,12 @@ color:rgb(238, 238, 238);
           <item>
            <widget class="QFrame" name="frame_12">
             <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
+             <enum>QFrame::NoFrame</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="4,0">
+            <layout class="QVBoxLayout" name="verticalLayout_8" stretch="4">
              <property name="spacing">
               <number>0</number>
              </property>
@@ -582,7 +470,7 @@ color:rgb(238, 238, 238);
              <item>
               <widget class="QFrame" name="frame_24">
                <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+                <enum>QFrame::NoFrame</enum>
                </property>
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
@@ -617,11 +505,26 @@ color:rgb(238, 238, 238);
                      <property name="frameShadow">
                       <enum>QFrame::Raised</enum>
                      </property>
-                     <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="3,8">
+                     <layout class="QHBoxLayout" name="horizontalLayout_17" stretch="2,6">
+                      <property name="spacing">
+                       <number>2</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>1</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>1</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>1</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>1</number>
+                      </property>
                       <item>
                        <widget class="QLabel" name="label_12">
                         <property name="text">
-                         <string>TIPO VEHICULO</string>
+                         <string>Tipo vehiculo</string>
                         </property>
                        </widget>
                       </item>
@@ -676,7 +579,7 @@ color:rgb(238, 238, 238);
                       <item>
                        <widget class="QLabel" name="label_7">
                         <property name="text">
-                         <string>MODELO</string>
+                         <string>Modelo</string>
                         </property>
                        </widget>
                       </item>
@@ -718,12 +621,26 @@ color:rgb(238, 238, 238);
                       <item>
                        <widget class="QLabel" name="label_8">
                         <property name="text">
-                         <string>PLACA</string>
+                         <string>Placa</string>
                         </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLineEdit" name="linePlaca"/>
+                       <layout class="QHBoxLayout" name="horizontalLayout_18">
+                        <item>
+                         <widget class="QLineEdit" name="linePlaca"/>
+                        </item>
+                        <item>
+                         <widget class="QPushButton" name="btn_buscarplaca">
+                          <property name="toolTip">
+                           <string>buscar placa</string>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
                     </widget>
@@ -760,7 +677,7 @@ color:rgb(238, 238, 238);
                       <item>
                        <widget class="QLabel" name="label_9">
                         <property name="text">
-                         <string>COLOR</string>
+                         <string>Color</string>
                         </property>
                        </widget>
                       </item>
@@ -802,7 +719,7 @@ color:rgb(238, 238, 238);
                       <item>
                        <widget class="QLabel" name="label_10">
                         <property name="text">
-                         <string>MOTOR</string>
+                         <string>Motor</string>
                         </property>
                        </widget>
                       </item>
@@ -844,7 +761,7 @@ color:rgb(238, 238, 238);
                       <item>
                        <widget class="QLabel" name="label_11">
                         <property name="text">
-                         <string>KILOMETRAGE</string>
+                         <string>Kilometraje</string>
                         </property>
                        </widget>
                       </item>
@@ -860,12 +777,12 @@ color:rgb(238, 238, 238);
                 <item>
                  <widget class="QFrame" name="frame_14">
                   <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
+                   <enum>QFrame::NoFrame</enum>
                   </property>
                   <property name="frameShadow">
                    <enum>QFrame::Raised</enum>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_6" stretch="4,4">
+                  <layout class="QVBoxLayout" name="verticalLayout_6" stretch="3,3">
                    <property name="leftMargin">
                     <number>0</number>
                    </property>
@@ -910,7 +827,7 @@ color:rgb(238, 238, 238);
                         <item>
                          <widget class="QLabel" name="label_13">
                           <property name="text">
-                           <string>FOTO PLACA</string>
+                           <string>Foto placa</string>
                           </property>
                          </widget>
                         </item>
@@ -922,13 +839,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Foto</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -940,13 +851,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Subir</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -994,7 +899,7 @@ color:black;
                         <item>
                          <widget class="QLabel" name="label_14">
                           <property name="text">
-                           <string>FOTO VEHICULO</string>
+                           <string>Foto vehiculo</string>
                           </property>
                          </widget>
                         </item>
@@ -1006,13 +911,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Foto</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -1024,13 +923,7 @@ color:black;
 }</string>
                           </property>
                           <property name="text">
-                           <string>Subir</string>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>25</width>
-                            <height>25</height>
-                           </size>
+                           <string/>
                           </property>
                          </widget>
                         </item>
@@ -1052,87 +945,6 @@ color:black;
                </layout>
               </widget>
              </item>
-             <item>
-              <widget class="QFrame" name="frame_23">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="4,2">
-                <property name="spacing">
-                 <number>6</number>
-                </property>
-                <property name="leftMargin">
-                 <number>9</number>
-                </property>
-                <property name="topMargin">
-                 <number>9</number>
-                </property>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_7">
-                  <item>
-                   <widget class="QLabel" name="lb_msg_err">
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="margin">
-                     <number>10</number>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_20">
-                  <item>
-                   <widget class="QPushButton" name="btnAtrasVeh">
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background:rgb(175, 28, 35)
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Atras</string>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>25</width>
-                      <height>25</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="btnGuardarVehiculo">
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-	background:rgb(75, 181, 96);
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Siguiente</string>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>25</width>
-                      <height>25</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </widget>
-             </item>
             </layout>
            </widget>
           </item>
@@ -1143,6 +955,58 @@ background:rgb(175, 28, 35)
           <string>DETALLES</string>
          </attribute>
         </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QFrame" name="frame_3">
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,0,0">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QLabel" name="lb_valid_message">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnSalir">
+           <property name="text">
+            <string>Cancelar</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>25</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnSiguiente">
+           <property name="text">
+            <string>Siguiente</string>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>25</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>

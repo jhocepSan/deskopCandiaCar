@@ -7,16 +7,20 @@ from ControlView.ModalRegistro import ModalRegistro
 from ControlView.ModalUsuario import ModalUsuario
 from ControlView.ModalLogin import ModalLogin
 from functools import partial
-import Clases.ComunicacionApi as ComunicacionApi
+import Clases.services.cliente as clienteapi
+import Clases.services.usuario as usuarioapi
 import Clases.Utils as utils
 import Clases.UtilsMessage as msgUtils
 import os
-
+from Clases.enums import Color, IconSize
+from enum import Enum
+class Vista(Enum):
+    USUARIO = 1
+    CLIENTE = 3
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.SVG_BASE = utils.SVG_BASE
-        self.api = ComunicacionApi.ComunicacionApi()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setStyleSheet("""
@@ -35,46 +39,29 @@ class MainWindow(QMainWindow):
         self.ui.btnConfig.clicked.connect(lambda:self.mostrarVista(2))
         self.ui.btnServicios.clicked.connect(lambda:self.mostrarVista(0))
         self.ui.btnUsuarios.clicked.connect(lambda:self.mostrarVista(1))
-        self.ui.btnLoadClient.clicked.connect(self.cargarClientes)
-        self.ui.btnAddClient.clicked.connect(self.mostrarModalRegistro)
-        self.ui.btnNuevoUser.clicked.connect(self.mostrarModalUsuario)
+        self.ui.btn_add.clicked.connect(self.show_registerModal)
+        self.ui.btn_refrescar.clicked.connect(self.refresh_view)
+        
         self.testLogin()
-    def svg_coloreado(self,filename, color_hex, size=QSize(32, 32)):
-        full_path = os.path.join(self.SVG_BASE, filename)
-        renderer = QSvgRenderer(full_path)
-        pixmap = QPixmap(size)
-        pixmap.fill(QColor("transparent"))
-        painter = QPainter(pixmap)
-        renderer.render(painter)
-        painter.setCompositionMode(QPainter.CompositionMode.CompositionMode_SourceIn)
-        painter.fillRect(pixmap.rect(), QColor(color_hex))
-        painter.end()
-        return QIcon(pixmap)
     def agregarTooltips(self):
         self.ui.btnMenu.setToolTip('Menu')
-        self.ui.btnMenu.setIcon(self.svg_coloreado("list.svg","#220049",QSize(40,40)))
+        self.ui.btnMenu.setIcon(utils.get_icon("list", Color.RED_DARK))
         self.ui.btnClientes.setToolTip('Clientes')
-        self.ui.btnClientes.setIcon(self.svg_coloreado("people-group.svg","#5A0000",QSize(50,50)))
+        self.ui.btnClientes.setIcon(utils.get_icon("people-group", Color.RED_DARK))
         self.ui.btnConfig.setToolTip('Configuraciones')
-        self.ui.btnConfig.setIcon(self.svg_coloreado("screwdriver-wrench.svg","#5A0000",QSize(50,50)))
+        self.ui.btnConfig.setIcon(utils.get_icon("screwdriver-wrench", Color.RED_DARK))
         self.ui.btnUsuarios.setToolTip('Usuarios')
-        self.ui.btnUsuarios.setIcon(self.svg_coloreado("user-gear.svg","#5A0000",QSize(50,50)))
+        self.ui.btnUsuarios.setIcon(utils.get_icon("user-gear", Color.RED_DARK))
         self.ui.btnServicios.setToolTip('Servicios')
-        self.ui.btnServicios.setIcon(self.svg_coloreado("arrows-turn-to-dots.svg","#5A0000",QSize(50,50)))
-        self.ui.btnAddClient.setToolTip('Agregar Cliente')
-        self.ui.btnAddClient.setIcon(self.svg_coloreado("user-plus.svg","#0F300E",QSize(50,50)))
-        self.ui.btnLoadClient.setToolTip('Refrescar lista Clientes')
-        self.ui.btnLoadClient.setIcon(self.svg_coloreado("arrows-spin.svg","#030464",QSize(50,50)))
+        self.ui.btnServicios.setIcon(utils.get_icon("arrows-turn-to-dots", Color.RED_DARK))
+        self.ui.btn_refrescar.setIcon(utils.get_icon("arrows-spin", Color.BLUE))
         self.ui.bSearchClient.setToolTip('Buscar Cliente')
-        self.ui.bSearchClient.setIcon(self.svg_coloreado("magnifying-glass.svg","#000000",QSize(50,50)))
+        self.ui.bSearchClient.setIcon(utils.get_icon("magnifying-glass"))
         self.ui.expoCliPdf.setToolTip('Exportar Lista de Clientes PDF')
-        self.ui.expoCliPdf.setIcon(self.svg_coloreado("file-pdf.svg","#7e1010",QSize(50,50)))
+        self.ui.expoCliPdf.setIcon(utils.get_icon("file-pdf", Color.RED))
         self.ui.exExcCli.setToolTip('Exportar Lista de Clientes Excel')
-        self.ui.exExcCli.setIcon(self.svg_coloreado("file-excel.svg","#104919",QSize(50,50)))
-        self.ui.btnBuscarUser.setToolTip("Buscar Usuario De la lista")
-        self.ui.btnBuscarUser.setIcon(self.svg_coloreado("magnifying-glass.svg","#000000",QSize(50,50)))
-        self.ui.btnNuevoUser.setToolTip("Crear Nuevo Usuario")
-        self.ui.btnNuevoUser.setIcon(self.svg_coloreado("user-plus.svg","#0F300E",QSize(50,50)))
+        self.ui.exExcCli.setIcon(utils.get_icon("file-excel", Color.GREEN))
+        self.ui.btn_add.setIcon(utils.get_icon("user-plus", Color.GREEN))
 
     def toggleMenu(self):
         tamanio = self.ui.SideBar.minimumWidth()
@@ -96,18 +83,35 @@ class MainWindow(QMainWindow):
             self.ui.btnUsuarios.setText('USUARIOS')
     def mostrarVista(self,val):
         self.ui.stackedWidget.setCurrentIndex(val)
-        if val==1:
+        if val == Vista.USUARIO.value:
             self.cargarUsarios()
-        if val==3:
+            self.ui.bSearchClient.setToolTip("Buscar usuario")
+            self.ui.btn_refrescar.setToolTip('Refrescar lista usuarios')
+            self.ui.btn_add.setToolTip("Crear nuevo usuario")
+        elif val == Vista.CLIENTE.value:
             self.cargarClientes()
+            self.ui.bSearchClient.setToolTip('Buscar cliente')
+            self.ui.btn_refrescar.setToolTip('Refrescar lista clientes')
+            self.ui.btn_add.setToolTip("Crear nuevo cliente")
+        else:
+            pass
+
+    def refresh_view(self):
+        if self.ui.stackedWidget.currentIndex() == Vista.USUARIO.value:
+            self.cargarUsarios()
+        elif self.ui.stackedWidget.currentIndex() == Vista.CLIENTE.value:
+            self.cargarClientes()
+        else:
+            pass
+
     def cargarClientes(self):
-        result = self.api.ObtenerClientes()
-        if 'ok' in result:
+        result = clienteapi.ObtenerClientes()
+        if result.data:
             self.ui.listaClientes.clear()
-            self.ui.listaClientes.setRowCount(len(result['ok']))
+            self.ui.listaClientes.setRowCount(len(result.data['ok']))
             self.ui.listaClientes.setColumnCount(11)
             self.ui.listaClientes.setHorizontalHeaderLabels(['ID','CODIGO',"NOMBRES","APELLIDOS","DIRECCION","TELEFONO",'AP PERMISO',"","",""])
-            for row,cliente in enumerate(result['ok']):
+            for row,cliente in enumerate(result.data['ok']):
                 self.ui.listaClientes.setItem(row,0,QTableWidgetItem(str(cliente['idpersona'])))
                 self.ui.listaClientes.setItem(row,1,QTableWidgetItem(cliente['codigo']))
                 self.ui.listaClientes.setItem(row,2,QTableWidgetItem(cliente['nombres']))
@@ -115,16 +119,17 @@ class MainWindow(QMainWindow):
                 self.ui.listaClientes.setItem(row,4,QTableWidgetItem(cliente['direccion']))
                 self.ui.listaClientes.setItem(row,5,QTableWidgetItem(str(cliente['telefono'])))
         print(result)
+
     def cargarUsarios(self):
-        result = self.api.ObtenerUsuarios()
-        if 'ok' in result:
+        result = usuarioapi.ObtenerUsuarios()
+        if result.data:
             self.ui.tableWidget.clear()
-            self.ui.tableWidget.setRowCount(len(result['ok']))
+            self.ui.tableWidget.setRowCount(len(result.data['ok']))
             self.ui.tableWidget.setColumnCount(9)
             self.ui.tableWidget.setHorizontalHeaderLabels(['ID',"NOMBRE USUARIO","CORREO","TIPO USARIO","ESTADO",'AP PERMISO',"","",""])
-            for row,user in enumerate(result['ok']):
+            for row,user in enumerate(result.data['ok']):
                 boton = QPushButton("Ver")
-                boton.setIcon(self.svg_coloreado("eye.svg","#000000",QSize(40,40)))
+                boton.setIcon(utils.get_icon("eye"))
                 boton.setStyleSheet("""QPushButton{
                     border-radius: 12px;
                     color:rgb(255, 255, 255);
@@ -143,7 +148,7 @@ class MainWindow(QMainWindow):
                 boton.clicked.connect(partial(self.verDetalle,user))
                 boton.setToolTip("Ver detalles Usuario")
                 botoneliminar = QPushButton('')
-                botoneliminar.setIcon(self.svg_coloreado("trash-can.svg","#9E0101",QSize(40,40)))
+                botoneliminar.setIcon(utils.get_icon("trash-can",Color.RED))
                 botoneliminar.setStyleSheet("""QPushButton{
                     border-radius: 12px;
                     color:rgb(255, 255, 255);
@@ -161,7 +166,7 @@ class MainWindow(QMainWindow):
                     }""")
                 botoneliminar.setToolTip("Eliminar Usuario")
                 botoninactivar = QPushButton('')
-                botoninactivar.setIcon(self.svg_coloreado("user-slash.svg","#DA6900",QSize(40,40)))
+                botoninactivar.setIcon(utils.get_icon("user-slash"))
                 botoninactivar.setStyleSheet("""QPushButton{
                     border-radius: 12px;
                     color:rgb(255, 255, 255);
@@ -189,29 +194,30 @@ class MainWindow(QMainWindow):
                 self.ui.tableWidget.setCellWidget(row,6,boton)
                 self.ui.tableWidget.setCellWidget(row,7,botoninactivar)
                 self.ui.tableWidget.setCellWidget(row,8,botoneliminar)
-        elif 'detail' in result:
-            msgUtils.mostrar_toast_error(self,"Error: "+str(result['detail']))
         else:
-            msgUtils.mostrar_toast_error(self,"Error: "+str(result['error']))
-    def mostrarModalRegistro(self):
-        dialog = ModalRegistro()
-        dialog.exec()
-    def mostrarModalUsuario(self):
-        dialog  = ModalUsuario()
-        result = dialog.exec()
-        if result == QDialog.DialogCode.Accepted:
-            print("creado usuario")
-            self.cargarUsarios()
+            msgUtils.mostrar_toast_error(self,"Error: "+str(result.error))
+
+    def show_registerModal(self):
+        if self.ui.stackedWidget.currentIndex() == Vista.USUARIO.value:
+            dialog  = ModalUsuario()
+            result = dialog.exec()
+            if result == QDialog.DialogCode.Accepted:
+                print("creado usuario")
+                self.cargarUsarios()
+        elif self.ui.stackedWidget.currentIndex() == Vista.CLIENTE.value:
+            dialog = ModalRegistro()
+            dialog.exec()
+        else:
+            pass
+
     def editarEstadoUser(self,dato,estado):
-        result = self.api.CambiarEstadoUser({'id':dato['id'],'estado':estado})
+        result = usuarioapi.CambiarEstadoUser({'id':dato['id'],'estado':estado})
         print(result)
-        if 'ok' in result:
-            msgUtils.mostrar_toast_correcto(self,result['ok'])
+        if result.data:
+            msgUtils.mostrar_toast_correcto(self,result.data['ok'])
             self.cargarUsarios()
-        elif 'detail' in result:
-            msgUtils.mostrar_toast_error(self,"Error: "+str(result['detail']))
         else:
-            msgUtils.mostrar_toast_error(self,"Error: "+str(result['error']))
+            msgUtils.mostrar_toast_error(self,"Error: "+str(result.error))
     def testLogin(self):
         session = utils.test_session_user()
         print(session)

@@ -12,13 +12,12 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(828, 577)
-        Dialog.setStyleSheet("background:rgb(85, 85, 85);")
+        Dialog.resize(696, 460)
         self.horizontalLayout = QtWidgets.QHBoxLayout(Dialog)
         self.horizontalLayout.setContentsMargins(1, 1, 1, 1)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.frame = QtWidgets.QFrame(parent=Dialog)
-        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
         self.gridLayout = QtWidgets.QGridLayout(self.frame)
@@ -26,50 +25,15 @@ class Ui_Dialog(object):
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.tabWidget = QtWidgets.QTabWidget(parent=self.frame)
-        self.tabWidget.setStyleSheet("QTabBar::tab {\n"
-"        color: rgb(164, 255, 225);        \n"
-"        padding: 8px;\n"
-"        font-weight: bold;\n"
-"}\n"
-" QTabBar::tab:selected {\n"
-"        color: white;        \n"
-"        font-weight: bold;   \n"
-"        background:rgb(94, 94, 255);\n"
-"}")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
-        self.tab.setStyleSheet("QLabel{\n"
-"color:rgb(245, 245, 245);\n"
-"font:77 10pt \'Arial Black\';\n"
-"}\n"
-"QPushButton{\n"
-"border-radius: 12px;\n"
-"color:rgb(238, 238, 238);\n"
-"background-color:rgb(186, 186, 186);\n"
-"padding: 7px 7px;\n"
-"  text-align: center;\n"
-"  font-size: 16px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #04AA6D; /* Green */\n"
-"color: white;\n"
-"}\n"
-"QLineEdit{\n"
-"padding: 12px 20px;\n"
-"margin: 8px 0;\n"
-"border: 2px solid #fff;\n"
-"border-radius: 5px;\n"
-"font:77 16px \'Arial Black\';\n"
-"color:rgb(238, 238, 238);\n"
-"}\n"
-"")
         self.tab.setObjectName("tab")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.tab)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setSpacing(2)
         self.verticalLayout.setObjectName("verticalLayout")
         self.frame_2 = QtWidgets.QFrame(parent=self.tab)
-        self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_2.setObjectName("frame_2")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_2)
@@ -85,7 +49,7 @@ class Ui_Dialog(object):
         self.verticalLayout_2.setSpacing(2)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame_6 = QtWidgets.QFrame(parent=self.frame_4)
-        self.frame_6.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_6.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_6.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_6.setObjectName("frame_6")
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_6)
@@ -98,11 +62,11 @@ class Ui_Dialog(object):
         self.lineNombres = QtWidgets.QLineEdit(parent=self.frame_6)
         self.lineNombres.setObjectName("lineNombres")
         self.horizontalLayout_4.addWidget(self.lineNombres)
-        self.horizontalLayout_4.setStretch(0, 2)
+        self.horizontalLayout_4.setStretch(0, 3)
         self.horizontalLayout_4.setStretch(1, 8)
         self.verticalLayout_2.addWidget(self.frame_6)
         self.frame_8 = QtWidgets.QFrame(parent=self.frame_4)
-        self.frame_8.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_8.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_8.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_8.setObjectName("frame_8")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.frame_8)
@@ -115,11 +79,11 @@ class Ui_Dialog(object):
         self.lineApellidos = QtWidgets.QLineEdit(parent=self.frame_8)
         self.lineApellidos.setObjectName("lineApellidos")
         self.horizontalLayout_5.addWidget(self.lineApellidos)
-        self.horizontalLayout_5.setStretch(0, 2)
+        self.horizontalLayout_5.setStretch(0, 3)
         self.horizontalLayout_5.setStretch(1, 8)
         self.verticalLayout_2.addWidget(self.frame_8)
         self.frame_7 = QtWidgets.QFrame(parent=self.frame_4)
-        self.frame_7.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_7.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_7.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_7.setObjectName("frame_7")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_7)
@@ -132,11 +96,11 @@ class Ui_Dialog(object):
         self.lineDireccion = QtWidgets.QLineEdit(parent=self.frame_7)
         self.lineDireccion.setObjectName("lineDireccion")
         self.horizontalLayout_6.addWidget(self.lineDireccion)
-        self.horizontalLayout_6.setStretch(0, 2)
+        self.horizontalLayout_6.setStretch(0, 3)
         self.horizontalLayout_6.setStretch(1, 8)
         self.verticalLayout_2.addWidget(self.frame_7)
         self.frame_9 = QtWidgets.QFrame(parent=self.frame_4)
-        self.frame_9.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_9.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_9.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_9.setObjectName("frame_9")
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.frame_9)
@@ -149,26 +113,16 @@ class Ui_Dialog(object):
         self.lineTelefono = QtWidgets.QLineEdit(parent=self.frame_9)
         self.lineTelefono.setObjectName("lineTelefono")
         self.horizontalLayout_7.addWidget(self.lineTelefono)
-        self.horizontalLayout_7.setStretch(0, 2)
+        self.horizontalLayout_7.setStretch(0, 3)
         self.horizontalLayout_7.setStretch(1, 8)
         self.verticalLayout_2.addWidget(self.frame_9)
-        self.framValid = QtWidgets.QFrame(parent=self.frame_4)
-        self.framValid.setObjectName("framValid")
-        self.vL_lb_valid_message = QtWidgets.QVBoxLayout(self.framValid)
-        self.vL_lb_valid_message.setObjectName("vL_lb_valid_message")
-        self.lb_valid_message = QtWidgets.QLabel(parent=self.framValid)
-        self.lb_valid_message.setText("")
-        self.lb_valid_message.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lb_valid_message.setObjectName("lb_valid_message")
-        self.vL_lb_valid_message.addWidget(self.lb_valid_message)
-        self.verticalLayout_2.addWidget(self.framValid)
         self.verticalLayout_2.setStretch(0, 1)
         self.verticalLayout_2.setStretch(1, 1)
         self.verticalLayout_2.setStretch(2, 1)
         self.verticalLayout_2.setStretch(3, 1)
         self.horizontalLayout_3.addWidget(self.frame_4)
         self.frame_5 = QtWidgets.QFrame(parent=self.frame_2)
-        self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_5.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_5.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_5.setObjectName("frame_5")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_5)
@@ -190,7 +144,7 @@ class Ui_Dialog(object):
 "    background:rgb(174, 179, 255);\n"
 "    color:black;\n"
 "}")
-        self.btnBuscarCodigo.setIconSize(QtCore.QSize(25, 25))
+        self.btnBuscarCodigo.setText("")
         self.btnBuscarCodigo.setObjectName("btnBuscarCodigo")
         self.horizontalLayout_8.addWidget(self.btnBuscarCodigo)
         self.btnGenCodigo = QtWidgets.QPushButton(parent=self.frame_10)
@@ -198,7 +152,7 @@ class Ui_Dialog(object):
 "background:rgb(255, 187, 244);\n"
 "color:black;\n"
 "}")
-        self.btnGenCodigo.setIconSize(QtCore.QSize(25, 25))
+        self.btnGenCodigo.setText("")
         self.btnGenCodigo.setObjectName("btnGenCodigo")
         self.horizontalLayout_8.addWidget(self.btnGenCodigo)
         self.verticalLayout_3.addWidget(self.frame_10)
@@ -206,21 +160,46 @@ class Ui_Dialog(object):
         self.frame_11.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_11.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_11.setObjectName("frame_11")
-        self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.frame_11)
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.frame_11)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.lb_fotocliente_path = QtWidgets.QLabel(parent=self.frame_11)
+        self.lb_fotocliente_path.setText("")
+        self.lb_fotocliente_path.setObjectName("lb_fotocliente_path")
+        self.verticalLayout_10.addWidget(self.lb_fotocliente_path)
+        self.lb_fotocliente_preview = QtWidgets.QLabel(parent=self.frame_11)
+        self.lb_fotocliente_preview.setText("")
+        self.lb_fotocliente_preview.setObjectName("lb_fotocliente_preview")
+        self.verticalLayout_10.addWidget(self.lb_fotocliente_preview)
+        self.verticalLayout_10.setStretch(1, 1)
+        self.verticalLayout_7.addLayout(self.verticalLayout_10)
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
         self.label_6 = QtWidgets.QLabel(parent=self.frame_11)
         self.label_6.setObjectName("label_6")
         self.horizontalLayout_9.addWidget(self.label_6)
         self.btnFotoCliente = QtWidgets.QPushButton(parent=self.frame_11)
         self.btnFotoCliente.setStyleSheet("color:black;")
+        self.btnFotoCliente.setText("")
         self.btnFotoCliente.setIconSize(QtCore.QSize(25, 25))
         self.btnFotoCliente.setObjectName("btnFotoCliente")
         self.horizontalLayout_9.addWidget(self.btnFotoCliente)
         self.btnSubirFcliente = QtWidgets.QPushButton(parent=self.frame_11)
         self.btnSubirFcliente.setStyleSheet("color:black;")
+        self.btnSubirFcliente.setText("")
         self.btnSubirFcliente.setIconSize(QtCore.QSize(25, 25))
         self.btnSubirFcliente.setObjectName("btnSubirFcliente")
         self.horizontalLayout_9.addWidget(self.btnSubirFcliente)
+        self.btn_subirFotoCliente = QtWidgets.QPushButton(parent=self.frame_11)
+        self.btn_subirFotoCliente.setText("")
+        icon = QtGui.QIcon.fromTheme("edit-clear")
+        self.btn_subirFotoCliente.setIcon(icon)
+        self.btn_subirFotoCliente.setObjectName("btn_subirFotoCliente")
+        self.horizontalLayout_9.addWidget(self.btn_subirFotoCliente)
+        self.horizontalLayout_9.setStretch(0, 1)
+        self.verticalLayout_7.addLayout(self.horizontalLayout_9)
+        self.verticalLayout_7.setStretch(0, 1)
         self.verticalLayout_3.addWidget(self.frame_11)
         self.verticalLayout_3.setStretch(0, 1)
         self.verticalLayout_3.setStretch(1, 10)
@@ -228,63 +207,16 @@ class Ui_Dialog(object):
         self.horizontalLayout_3.setStretch(0, 1)
         self.horizontalLayout_3.setStretch(1, 1)
         self.verticalLayout.addWidget(self.frame_2)
-        self.frame_3 = QtWidgets.QFrame(parent=self.tab)
-        self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame_3.setObjectName("frame_3")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_3)
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.btnSalir = QtWidgets.QPushButton(parent=self.frame_3)
-        self.btnSalir.setStyleSheet("QPushButton{\n"
-"    background:rgb(175, 28, 35);\n"
-"}")
-        self.btnSalir.setIconSize(QtCore.QSize(25, 25))
-        self.btnSalir.setObjectName("btnSalir")
-        self.horizontalLayout_2.addWidget(self.btnSalir)
-        self.btnSiguiente = QtWidgets.QPushButton(parent=self.frame_3)
-        self.btnSiguiente.setStyleSheet("QPushButton{\n"
-"        background:rgb(75, 181, 96);\n"
-"}")
-        self.btnSiguiente.setIconSize(QtCore.QSize(25, 25))
-        self.btnSiguiente.setObjectName("btnSiguiente")
-        self.horizontalLayout_2.addWidget(self.btnSiguiente)
-        self.verticalLayout.addWidget(self.frame_3)
         self.verticalLayout.setStretch(0, 8)
-        self.verticalLayout.setStretch(1, 1)
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtWidgets.QWidget()
-        self.tab_2.setStyleSheet("QLabel{\n"
-"color:rgb(245, 245, 245);\n"
-"font:77 10pt \'Arial Black\';\n"
-"}\n"
-"QPushButton{\n"
-"border-radius: 12px;\n"
-"color:rgb(238, 238, 238);\n"
-"background-color:rgb(186, 186, 186);\n"
-"padding: 7px 7px;\n"
-"  text-align: center;\n"
-"  font-size: 16px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"background-color: #04AA6D; /* Green */\n"
-"color: white;\n"
-"}\n"
-"QLineEdit{\n"
-"padding: 12px 20px;\n"
-"margin: 8px 0;\n"
-"border: 2px solid #fff;\n"
-"border-radius: 5px;\n"
-"font:77 16px \'Arial Black\';\n"
-"color:rgb(238, 238, 238);\n"
-"}\n"
-"")
         self.tab_2.setObjectName("tab_2")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.tab_2)
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.frame_12 = QtWidgets.QFrame(parent=self.tab_2)
-        self.frame_12.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_12.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_12.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_12.setObjectName("frame_12")
         self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.frame_12)
@@ -292,7 +224,7 @@ class Ui_Dialog(object):
         self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
         self.frame_24 = QtWidgets.QFrame(parent=self.frame_12)
-        self.frame_24.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_24.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_24.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_24.setObjectName("frame_24")
         self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.frame_24)
@@ -309,6 +241,8 @@ class Ui_Dialog(object):
         self.frame_18.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_18.setObjectName("frame_18")
         self.horizontalLayout_17 = QtWidgets.QHBoxLayout(self.frame_18)
+        self.horizontalLayout_17.setContentsMargins(1, 1, 1, 1)
+        self.horizontalLayout_17.setSpacing(2)
         self.horizontalLayout_17.setObjectName("horizontalLayout_17")
         self.label_12 = QtWidgets.QLabel(parent=self.frame_18)
         self.label_12.setObjectName("label_12")
@@ -319,8 +253,8 @@ class Ui_Dialog(object):
         self.comboTipoVehiculo.setSizeAdjustPolicy(QtWidgets.QComboBox.SizeAdjustPolicy.AdjustToContents)
         self.comboTipoVehiculo.setObjectName("comboTipoVehiculo")
         self.horizontalLayout_17.addWidget(self.comboTipoVehiculo)
-        self.horizontalLayout_17.setStretch(0, 3)
-        self.horizontalLayout_17.setStretch(1, 8)
+        self.horizontalLayout_17.setStretch(0, 2)
+        self.horizontalLayout_17.setStretch(1, 6)
         self.verticalLayout_5.addWidget(self.frame_18)
         self.frame_15 = QtWidgets.QFrame(parent=self.frame_13)
         font = QtGui.QFont()
@@ -356,9 +290,16 @@ class Ui_Dialog(object):
         self.label_8 = QtWidgets.QLabel(parent=self.frame_16)
         self.label_8.setObjectName("label_8")
         self.horizontalLayout_12.addWidget(self.label_8)
+        self.horizontalLayout_18 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_18.setObjectName("horizontalLayout_18")
         self.linePlaca = QtWidgets.QLineEdit(parent=self.frame_16)
         self.linePlaca.setObjectName("linePlaca")
-        self.horizontalLayout_12.addWidget(self.linePlaca)
+        self.horizontalLayout_18.addWidget(self.linePlaca)
+        self.btn_buscarplaca = QtWidgets.QPushButton(parent=self.frame_16)
+        self.btn_buscarplaca.setText("")
+        self.btn_buscarplaca.setObjectName("btn_buscarplaca")
+        self.horizontalLayout_18.addWidget(self.btn_buscarplaca)
+        self.horizontalLayout_12.addLayout(self.horizontalLayout_18)
         self.horizontalLayout_12.setStretch(0, 2)
         self.horizontalLayout_12.setStretch(1, 6)
         self.verticalLayout_5.addWidget(self.frame_16)
@@ -424,7 +365,7 @@ class Ui_Dialog(object):
         self.verticalLayout_5.addWidget(self.frame_22)
         self.horizontalLayout_10.addWidget(self.frame_13)
         self.frame_14 = QtWidgets.QFrame(parent=self.frame_24)
-        self.frame_14.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_14.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
         self.frame_14.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_14.setObjectName("frame_14")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.frame_14)
@@ -457,14 +398,14 @@ class Ui_Dialog(object):
         self.btnFotoPlaca.setStyleSheet("QPushButton{\n"
 "color:black;\n"
 "}")
-        self.btnFotoPlaca.setIconSize(QtCore.QSize(25, 25))
+        self.btnFotoPlaca.setText("")
         self.btnFotoPlaca.setObjectName("btnFotoPlaca")
         self.horizontalLayout_21.addWidget(self.btnFotoPlaca)
         self.btnSubFplaca = QtWidgets.QPushButton(parent=self.frame_19)
         self.btnSubFplaca.setStyleSheet("QPushButton{\n"
 "color:black;\n"
 "}")
-        self.btnSubFplaca.setIconSize(QtCore.QSize(25, 25))
+        self.btnSubFplaca.setText("")
         self.btnSubFplaca.setObjectName("btnSubFplaca")
         self.horizontalLayout_21.addWidget(self.btnSubFplaca)
         self.btn_rm_fotoplaca = QtWidgets.QPushButton(parent=self.frame_19)
@@ -501,14 +442,14 @@ class Ui_Dialog(object):
         self.btnFotoVehi.setStyleSheet("QPushButton{\n"
 "color:black;\n"
 "}")
-        self.btnFotoVehi.setIconSize(QtCore.QSize(25, 25))
+        self.btnFotoVehi.setText("")
         self.btnFotoVehi.setObjectName("btnFotoVehi")
         self.hL_foto_actions.addWidget(self.btnFotoVehi)
         self.btnSubFvehiculo = QtWidgets.QPushButton(parent=self.frame_20)
         self.btnSubFvehiculo.setStyleSheet("QPushButton{\n"
 "color:black;\n"
 "}")
-        self.btnSubFvehiculo.setIconSize(QtCore.QSize(25, 25))
+        self.btnSubFvehiculo.setText("")
         self.btnSubFvehiculo.setObjectName("btnSubFvehiculo")
         self.hL_foto_actions.addWidget(self.btnSubFvehiculo)
         self.btn_rm_fotovehiculo = QtWidgets.QPushButton(parent=self.frame_20)
@@ -519,48 +460,12 @@ class Ui_Dialog(object):
         self.verticalLayout_11.addLayout(self.hL_foto_actions)
         self.verticalLayout_11.setStretch(0, 1)
         self.verticalLayout_6.addWidget(self.frame_20)
-        self.verticalLayout_6.setStretch(0, 4)
-        self.verticalLayout_6.setStretch(1, 4)
+        self.verticalLayout_6.setStretch(0, 3)
+        self.verticalLayout_6.setStretch(1, 3)
         self.horizontalLayout_10.addWidget(self.frame_14)
         self.horizontalLayout_10.setStretch(0, 4)
         self.horizontalLayout_10.setStretch(1, 4)
         self.verticalLayout_8.addWidget(self.frame_24)
-        self.frame_23 = QtWidgets.QFrame(parent=self.frame_12)
-        self.frame_23.setMinimumSize(QtCore.QSize(0, 0))
-        self.frame_23.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
-        self.frame_23.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
-        self.frame_23.setObjectName("frame_23")
-        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.frame_23)
-        self.horizontalLayout_16.setContentsMargins(9, 9, -1, -1)
-        self.horizontalLayout_16.setSpacing(6)
-        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.lb_msg_err = QtWidgets.QLabel(parent=self.frame_23)
-        self.lb_msg_err.setText("")
-        self.lb_msg_err.setObjectName("lb_msg_err")
-        self.verticalLayout_7.addWidget(self.lb_msg_err)
-        self.horizontalLayout_16.addLayout(self.verticalLayout_7)
-        self.horizontalLayout_20 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_20.setObjectName("horizontalLayout_20")
-        self.btnAtrasVeh = QtWidgets.QPushButton(parent=self.frame_23)
-        self.btnAtrasVeh.setStyleSheet("QPushButton{\n"
-"background:rgb(175, 28, 35)\n"
-"}")
-        self.btnAtrasVeh.setIconSize(QtCore.QSize(25, 25))
-        self.btnAtrasVeh.setObjectName("btnAtrasVeh")
-        self.horizontalLayout_20.addWidget(self.btnAtrasVeh)
-        self.btnGuardarVehiculo = QtWidgets.QPushButton(parent=self.frame_23)
-        self.btnGuardarVehiculo.setStyleSheet("QPushButton{\n"
-"    background:rgb(75, 181, 96);\n"
-"}")
-        self.btnGuardarVehiculo.setIconSize(QtCore.QSize(25, 25))
-        self.btnGuardarVehiculo.setObjectName("btnGuardarVehiculo")
-        self.horizontalLayout_20.addWidget(self.btnGuardarVehiculo)
-        self.horizontalLayout_16.addLayout(self.horizontalLayout_20)
-        self.horizontalLayout_16.setStretch(0, 4)
-        self.horizontalLayout_16.setStretch(1, 2)
-        self.verticalLayout_8.addWidget(self.frame_23)
         self.verticalLayout_8.setStretch(0, 4)
         self.verticalLayout_4.addWidget(self.frame_12)
         self.tabWidget.addTab(self.tab_2, "")
@@ -568,42 +473,57 @@ class Ui_Dialog(object):
         self.tab_3.setObjectName("tab_3")
         self.tabWidget.addTab(self.tab_3, "")
         self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
+        self.frame_3 = QtWidgets.QFrame(parent=self.frame)
+        self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame_3)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.lb_valid_message = QtWidgets.QLabel(parent=self.frame_3)
+        self.lb_valid_message.setText("")
+        self.lb_valid_message.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lb_valid_message.setObjectName("lb_valid_message")
+        self.verticalLayout_9.addWidget(self.lb_valid_message)
+        self.horizontalLayout_2.addLayout(self.verticalLayout_9)
+        self.btnSalir = QtWidgets.QPushButton(parent=self.frame_3)
+        self.btnSalir.setIconSize(QtCore.QSize(25, 25))
+        self.btnSalir.setObjectName("btnSalir")
+        self.horizontalLayout_2.addWidget(self.btnSalir)
+        self.btnSiguiente = QtWidgets.QPushButton(parent=self.frame_3)
+        self.btnSiguiente.setIconSize(QtCore.QSize(25, 25))
+        self.btnSiguiente.setObjectName("btnSiguiente")
+        self.horizontalLayout_2.addWidget(self.btnSiguiente)
+        self.horizontalLayout_2.setStretch(0, 4)
+        self.gridLayout.addWidget(self.frame_3, 1, 0, 1, 1)
         self.horizontalLayout.addWidget(self.frame)
 
         self.retranslateUi(Dialog)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Datos Registro"))
-        self.label.setText(_translate("Dialog", "NOMBRES"))
-        self.label_2.setText(_translate("Dialog", "APELLIDOS"))
-        self.label_3.setText(_translate("Dialog", "DIRECCION"))
-        self.label_4.setText(_translate("Dialog", "TELEFONO"))
-        self.label_5.setText(_translate("Dialog", "CODIGO"))
-        self.btnBuscarCodigo.setText(_translate("Dialog", "Buscar"))
-        self.btnGenCodigo.setText(_translate("Dialog", "Codigo"))
-        self.label_6.setText(_translate("Dialog", "FOTO CLIENTE"))
-        self.btnFotoCliente.setText(_translate("Dialog", "Foto"))
-        self.btnSubirFcliente.setText(_translate("Dialog", "Subir"))
-        self.btnSalir.setText(_translate("Dialog", "Cancelar"))
-        self.btnSiguiente.setText(_translate("Dialog", "Siguiente"))
+        self.label.setText(_translate("Dialog", "Nombres"))
+        self.label_2.setText(_translate("Dialog", "Apellidos"))
+        self.label_3.setText(_translate("Dialog", "Direccion"))
+        self.label_4.setText(_translate("Dialog", "Telefono"))
+        self.label_5.setText(_translate("Dialog", "Codigo"))
+        self.label_6.setText(_translate("Dialog", "Foto cliente"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("Dialog", "CLIENTE"))
-        self.label_12.setText(_translate("Dialog", "TIPO VEHICULO"))
+        self.label_12.setText(_translate("Dialog", "Tipo vehiculo"))
         self.comboTipoVehiculo.setPlaceholderText(_translate("Dialog", "buscar..."))
-        self.label_7.setText(_translate("Dialog", "MODELO"))
-        self.label_8.setText(_translate("Dialog", "PLACA"))
-        self.label_9.setText(_translate("Dialog", "COLOR"))
-        self.label_10.setText(_translate("Dialog", "MOTOR"))
-        self.label_11.setText(_translate("Dialog", "KILOMETRAGE"))
-        self.label_13.setText(_translate("Dialog", "FOTO PLACA"))
-        self.btnFotoPlaca.setText(_translate("Dialog", "Foto"))
-        self.btnSubFplaca.setText(_translate("Dialog", "Subir"))
-        self.label_14.setText(_translate("Dialog", "FOTO VEHICULO"))
-        self.btnFotoVehi.setText(_translate("Dialog", "Foto"))
-        self.btnSubFvehiculo.setText(_translate("Dialog", "Subir"))
-        self.btnAtrasVeh.setText(_translate("Dialog", "Atras"))
-        self.btnGuardarVehiculo.setText(_translate("Dialog", "Siguiente"))
+        self.label_7.setText(_translate("Dialog", "Modelo"))
+        self.label_8.setText(_translate("Dialog", "Placa"))
+        self.btn_buscarplaca.setToolTip(_translate("Dialog", "buscar placa"))
+        self.label_9.setText(_translate("Dialog", "Color"))
+        self.label_10.setText(_translate("Dialog", "Motor"))
+        self.label_11.setText(_translate("Dialog", "Kilometraje"))
+        self.label_13.setText(_translate("Dialog", "Foto placa"))
+        self.label_14.setText(_translate("Dialog", "Foto vehiculo"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("Dialog", "VEHICULO"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("Dialog", "DETALLES"))
+        self.btnSalir.setText(_translate("Dialog", "Cancelar"))
+        self.btnSiguiente.setText(_translate("Dialog", "Siguiente"))
